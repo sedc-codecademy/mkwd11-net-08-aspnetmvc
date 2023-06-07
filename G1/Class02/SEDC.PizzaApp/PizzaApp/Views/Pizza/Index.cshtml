@@ -1,0 +1,25 @@
+﻿@model List<Pizza>
+
+<h2>List of pizzas:</h2>
+<br />
+<div class="card-container">
+    @foreach (var pizza in @Model)
+    {
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src=@pizza.ImageUrl alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">@pizza.Name</h5>
+                <p class="card-text">@pizza.Price</p>
+            </div>
+            <br />
+            @if (pizza.IsOnPromotion)
+            {
+                <p class="text-success">ON PROMOTION</p>
+            }
+            else
+            {
+                <p class="text-danger">NOT ON PROMOTION</p>
+            }
+        </div>
+    }
+</div>
