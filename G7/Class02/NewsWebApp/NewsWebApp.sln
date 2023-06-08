@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33414.496
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsWebApp", "NewsWebApp\NewsWebApp.csproj", "{4AF2C4A5-DDD2-4943-97E9-E03A2C07CE11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{F5134150-1CC3-4866-9D28-BB1CC72CA700}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4AF2C4A5-DDD2-4943-97E9-E03A2C07CE11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AF2C4A5-DDD2-4943-97E9-E03A2C07CE11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AF2C4A5-DDD2-4943-97E9-E03A2C07CE11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AF2C4A5-DDD2-4943-97E9-E03A2C07CE11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5134150-1CC3-4866-9D28-BB1CC72CA700}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5134150-1CC3-4866-9D28-BB1CC72CA700}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5134150-1CC3-4866-9D28-BB1CC72CA700}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5134150-1CC3-4866-9D28-BB1CC72CA700}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2804B02F-38E5-43BC-A738-1B0D78F1B4F3}
+	EndGlobalSection
+EndGlobal
