@@ -51,9 +51,14 @@ namespace LibraryApp.Controllers
                 return new EmptyResult();
             }
 
+            Book book = StaticDb.Books.FirstOrDefault(book => book.Id == id);
 
+            if (book == null) 
+            {
+                return new EmptyResult();
+            }
 
-            return View();
+            return View(book);
         }
 
     }
