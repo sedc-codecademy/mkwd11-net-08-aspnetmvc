@@ -1,0 +1,29 @@
+﻿@model PizzaDetailsViewModel
+
+<h2>@Model.Name</h2>
+<img src="@Model.ImageUrl" width="500px" />
+<p>Price: @Model.Price denars.</p>
+
+<br />
+<h3>Pizza ingredients:</h3>
+@foreach (var item in Model.Ingredients)
+{
+    <p>@item</p>
+}
+
+<h3>Pizza sizes:</h3>
+@foreach (var item in Model.PizzaSizes)
+{
+    <p>@item</p>
+}
+
+<br />
+
+@if (@Model.IsOnPromotion)
+{
+    <p class="text-success">ON PROMOTION</p>
+}
+else
+{
+    <p class="text-danger">NOT ON PROMOTION</p>
+}
