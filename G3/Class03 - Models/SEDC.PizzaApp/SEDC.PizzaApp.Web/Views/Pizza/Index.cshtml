@@ -1,0 +1,35 @@
+﻿@using SEDC.PizzaApp.Web.Models.ViewModels
+@model IEnumerable<PizzaViewModel>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                IsOnPromotion
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var pizza in Model)
+        {
+            <tr>
+                <td>
+                    @pizza.Name
+                </td>
+                <td>
+                    @pizza.Price
+                </td>
+                <td>
+                    @(pizza.IsOnPromotion ? "Yes" : "No")
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
