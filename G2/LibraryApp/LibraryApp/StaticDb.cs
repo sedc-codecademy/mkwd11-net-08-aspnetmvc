@@ -20,6 +20,11 @@ namespace LibraryApp
             {
                 Id = 3,
                 Title = "35 Maj"
+            },
+            new Book
+            {
+                Id = 4,
+                Title = "Kniga 4"
             }
         };
     }

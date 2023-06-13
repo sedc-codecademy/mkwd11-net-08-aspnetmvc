@@ -8,7 +8,9 @@ namespace LibraryApp.Controllers
         //https://localhost:7100/book/index
         public IActionResult Index()
         {
-            return View();
+            List<Book> books = StaticDb.Books;
+
+            return View(books);
         }
 
         //https://localhost:7100/book/empty
@@ -18,7 +20,9 @@ namespace LibraryApp.Controllers
         }
 
         //https://localhost:7100/json
+        [HttpGet]
         [Route("json")]
+        //[HttpGet("json")]
         public IActionResult GetJson()
         {
             Book book = new Book()
@@ -60,6 +64,13 @@ namespace LibraryApp.Controllers
 
             return View(book);
         }
+
+        [Route("deletebook/{id?}/filter/{filterParam?}")]
+        public IActionResult Delete(int? id, string? filterParam) 
+        {
+            return View();
+        }
+
 
     }
 }
