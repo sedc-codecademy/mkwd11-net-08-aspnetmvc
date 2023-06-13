@@ -1,0 +1,17 @@
+﻿@model List<PizzaListViewModel>
+
+<h2>List of pizzas:</h2>
+<br />
+<div class="card-container">
+    @foreach (var pizza in @Model)
+    {
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src=@pizza.imgUrl alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">@pizza.Name</h5>
+                <p class="card-text">@pizza.Price</p>
+            </div>
+            <br />
+        </div>
+    }
+</div>

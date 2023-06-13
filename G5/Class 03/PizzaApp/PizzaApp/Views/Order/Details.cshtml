@@ -1,0 +1,12 @@
+﻿@*this is for the first example*@
+
+@*@model Order
+
+<p>The user @Model.User.FirstName @Model.User.LastName ordered the pizza @Model.Pizza.Name</p>
+ <p>The user paud by @Model.PaymentMethod</p>
+ <p>The pizza price was @Model.Pizza.Price</p>*@
+
+
+ @model OrderDetailsViewModel
+ 
+ <p>@Model.UserFullName ordered @Model.PizzaName. @Model.UserFullName paid @Model.Price by @Model.PaymentMethod</p>
