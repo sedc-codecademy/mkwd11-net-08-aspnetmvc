@@ -1,0 +1,15 @@
+﻿@using SEDC.PizzaApp.ViewModels;
+@model OrderDetailsViewModel
+
+@*<h2>Order details:</h2>*@
+
+<h2>@ViewData["Title"]</h2>
+
+<p>User: @Model.UserFullName</p>
+<p>Pizza: @Model.PizzaName</p>
+<p>Price: @Model.OrderPrice</p>
+<p>Payment method: @Model.PaymentMethod</p>
+
+<p>@ViewData["DateTime"]</p>
+
+<p>User phone number: @ViewBag.User.PhoneNumber</p>
