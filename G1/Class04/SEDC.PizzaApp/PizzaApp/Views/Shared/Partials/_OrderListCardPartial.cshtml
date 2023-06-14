@@ -1,0 +1,11 @@
+﻿@model OrderListViewModel
+
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">Pizza in order: @Model.PizzaName</h5>
+        <p class="card-text">Price of pizza in order: @Model.Price</p>              <p class="card-text">Order made by: @Model.UserFullName</p>
+        <p class="card-text">Payment method: @Model.PaymentMethod</p>
+    </div>
+    <br />
+    <a type="button" class="btn btn-primary" asp-action="Details" asp-route-id="@Model.Id">Details</a>
+</div>

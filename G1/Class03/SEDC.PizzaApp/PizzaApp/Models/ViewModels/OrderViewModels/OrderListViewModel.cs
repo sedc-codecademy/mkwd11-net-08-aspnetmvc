@@ -2,8 +2,10 @@
 
 namespace PizzaApp.Models.ViewModels.OrderViewModels
 {
-    public class OrderDetailsViewModel
+    public class OrderListViewModel
     {
+        public int Id { get; set; }
+
         public string PizzaName { get; set; } = string.Empty;
 
         public string UserFullName { get; set; } = string.Empty;
