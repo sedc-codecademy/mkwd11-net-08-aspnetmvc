@@ -1,0 +1,49 @@
+﻿
+@*Passing a model directly to the view and receving it in the View itself*@
+@*@model List<GameViewModel>
+
+<h1>All Games</h1>
+<p>Total: @Model.Count</p>*@
+
+
+@*Passing model/s using ViewBag*@
+@*<h1>All Games</h1>
+<p>Total: @(((List<GameViewModel>)ViewBag.AllGames).Count)</p>
+<p>Total numbers: @(((List<int>)ViewBag.Numbers).Count)</p>*@
+
+
+@*Passing model/s using ViewData*@
+@*<h1>All Games</h1>
+<p>Total: @(((List<GameViewModel>)ViewData["AllGames"]).Count)</p>*@
+
+
+@model List<GameViewModel>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Developers</th>
+            <th scope="col">Category</th>
+            <th scope="col">PEGI</th>
+            <th scope="col">Description</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(GameViewModel game in Model)
+        {
+            <tr>
+                <th scope="row">@game.Id</th>
+                <td>@game.Name</td>
+                <td>@game.Developers</td>
+                <td>@game.Category</td>
+                <td>@game.PEGI +</td>
+                <td>@game.Description</td>
+                <td><a asp-controller="Game" asp-action="Details" asp-route-id="@game.Id">Details</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
