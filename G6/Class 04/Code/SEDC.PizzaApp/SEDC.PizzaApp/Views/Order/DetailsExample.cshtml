@@ -1,0 +1,41 @@
+﻿@using SEDC.PizzaApp.ViewModels;
+@model OrderDetailsViewModel
+
+<partial name="~/Views/Shared/Partials/_OrdersHeaderPartial.cshtml" />
+
+<h2>@ViewData["Title"]</h2>
+
+<p>@($"In this order, user {Model.UserFullName} ordered {Model.PizzaName}.")</p>
+<p>The user paid @Model.OrderPrice.</p>
+<h3>But, if you order now, the price will be @(Model.OrderPrice - 100)</h3>
+@*this is not an expression, - 100 will be treated as text*@
+<h3>But, if you order now, the price will be @Model.OrderPrice - 100</h3> 
+
+<h6>The phone number of the user is: @ViewBag.User.PhoneNumber.</h6>
+
+@{
+    string message = "";
+
+    if (Model.IsDelivered)
+    {
+        message = "The order was delivered";
+    }
+    else
+    {
+        message = "The order was not delivered";
+    }
+}
+
+<p>@message</p>
+
+@*Option 2*@
+
+@if (Model.IsDelivered)
+{
+    <p>The order was delivered</p>
+}
+else
+{
+    <p>The order was not delivered</p>
+}
+

@@ -1,0 +1,34 @@
+﻿
+@model List<OrderListViewModel>
+
+<partial name="~/Views/Shared/Partials/_OrdersHeaderPartial.cshtml"/>
+
+<h2>All orders:</h2>
+
+<table border="1">
+    <tr><td>User</td><td>Pizza</td></tr>
+    @foreach (OrderListViewModel order in @Model)
+    {
+        <tr>
+            <td>@order.UserFullName</td> &nbsp;
+            <td>@order.PizzaName</td>
+        </tr>
+    }
+</table>
+
+
+@*============This is if we use domain models============*@
+@*@model List<Order>
+
+<h2>All orders:</h2>
+
+<table border="1">
+    <tr><td>User</td><td>Pizza</td></tr>
+    @foreach (Order order in @Model)
+    {
+        <tr>
+            <td>@order.User.FirstName @order.User.LastName</td> &nbsp;
+            <td>@order.Pizza.Name</td>
+        </tr>
+    }
+</table>*@
