@@ -1,0 +1,19 @@
+﻿@model OrderDetailsViewModel
+
+<partial name="~/Views/Shared/Partials/_OrdersHeaderPartial.cshtml" />
+
+<h2>Are you sure that you want to delete the following order:</h2>
+
+@*Details*@
+@*<p>User: @Model.UserFullName</p>
+<p>Pizza: @Model.PizzaName</p>
+<p>Price: @Model.OrderPrice</p>
+<p>Payment method: @Model.PaymentMethod</p>*@
+
+<partial name="~/Views/Shared/Partials/_OrderDetailsPartial.cshtml" for="@Model" />
+
+@*old syntax*@
+@*@Html.Partial("~/Views/Shared/Partials/_OrderDetailsPartial.cshtml", Model);*@
+
+<button>Yes</button>
+<button>No</button>
