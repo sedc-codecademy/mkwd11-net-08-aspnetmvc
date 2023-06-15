@@ -1,0 +1,30 @@
+﻿@*@using Models*@
+@*@using System.Drawing*@
+
+@model List<RestaurantViewModel>
+
+@*@{
+    int a = 7;
+    int b = 8;
+    for (var i = 0; i < 10; i++)
+    {
+        <p>Iteration: @i</p>
+    }
+}
+
+<h1>My app</h1>
+
+<p>Result is: @(a + b)</p>*@
+
+
+<partial name="~/Views/Shared/_Weather.cshtml"></partial>
+<h3>Restaurants:</h3>
+
+@{
+    foreach(var restaurant in Model)
+    {
+        <h5>@restaurant.Name - @restaurant.Location (@restaurant.PhoneNumber)</h5>
+        //@Html.Partial("~/Views/Shared/_Menu.cshtml", @restaurant.Menu)
+        <partial name="~/Views/Shared/_Menu.cshtml" model="@restaurant.Menu"></partial>
+    }
+}
