@@ -1,0 +1,20 @@
+﻿@*@using SEDC.PizzaApp.Models.Domain
+*@
+@*---------old code - when we send domain model to the view---------*@
+@*@model Order
+
+<p>The user @Model.User.FirstName @Model.User.LastName ordered the pizza @Model.Pizza.Name</p>
+<p>The user paid by @Model.PaymentMethod</p>*@
+
+
+@*------------NEW CODE with view models------------*@
+@*
+@using SEDC.PizzaApp.Models.ViewModels
+@model OrderDetailsViewModel
+<p>@Model.UserFullname ordered @Model.PizzaName. @Model.UserFullname paid @Model.Price by @Model.PaymentMethod.</p>*@
+
+@model OrderDetailsViewModel
+
+<h2>Order details</h2>
+
+<partial name="~/Views/Shared/Partials/_OrderDetailsPartial.cshtml" for="@Model" />

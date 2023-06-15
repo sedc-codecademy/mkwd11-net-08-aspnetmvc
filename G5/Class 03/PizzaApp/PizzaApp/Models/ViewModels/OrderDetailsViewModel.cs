@@ -7,6 +7,7 @@ namespace PizzaApp.Models.ViewModels
         public string PizzaName { get; set; }
         public string UserFullName { get; set; }
         public int Price { get; set; }
-        public PaymentMethodEnum PaymentMethod { get; set; }
+        public PaymentMethodEnum PaymentMetho { get; set; }
     }
 }
+

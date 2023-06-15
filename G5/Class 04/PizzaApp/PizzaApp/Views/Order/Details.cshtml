@@ -1,0 +1,27 @@
+﻿@*this is for the first example*@
+
+@*@model Order
+
+<p>The user @Model.User.FirstName @Model.User.LastName ordered the pizza @Model.Pizza.Name</p>
+ <p>The user paud by @Model.PaymentMethod</p>
+ <p>The pizza price was @Model.Pizza.Price</p>*@
+
+
+ @model OrderDetailsViewModel
+ 
+@if(ViewBag.Title.Length > 0)
+{
+    <h2>@ViewBag.Title by user: @ViewBag.User.FirstName</h2>
+}
+else 
+{
+    <h2>Hello</h2>
+}
+
+
+@*This is the example from the previous class*@
+@* <p>@Model.UserFullName ordered @Model.PizzaName. @Model.UserFullName paid @(Model.Price + 20) by @Model.PaymentMethod</p>*@
+
+
+@*We are calling the partial view to list the info about the order*@
+<partial name="~/Views/Shared/Partials/_OrderDetailsPartial.cshtml" for="@Model" />

@@ -1,0 +1,23 @@
+﻿@model List<OrderListViewModel>
+
+<h1>@ViewData["Title"]</h1>
+<br />
+<h2>Current date: @ViewData["Date"]</h2>
+
+<partial name="~/Views/Shared/Partials/_OrderGreetingPartial.cshtml" />
+
+<div class="card-container">
+    @{
+        int orderNumber = 1;
+    }
+    @foreach (var order in Model)
+    {
+        <h3>Order number: @orderNumber</h3>
+        <partial name="~/Views/Shared/Partials/_OrderListCardPartial.cshtml" for="@order" />
+        orderNumber++;
+    }
+</div>
+
+<h3>System message: @ViewData["Message"]</h3>
+<br />
+<a class="btn btn-warning" asp-area="" asp-controller="Home" asp-action="Index">Home page</a>
