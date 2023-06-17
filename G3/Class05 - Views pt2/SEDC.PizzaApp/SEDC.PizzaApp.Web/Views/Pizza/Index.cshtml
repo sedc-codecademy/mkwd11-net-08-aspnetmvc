@@ -1,0 +1,26 @@
+﻿@using SEDC.PizzaApp.Web.Models.ViewModels
+@model IEnumerable<PizzaViewModel>
+
+<h1>Pizzas for @ViewBag.User.FullName</h1>
+
+@{
+    await Html.RenderPartialAsync("_PizzaView", Model);
+}
+
+@section Scripts {
+    <script type="text/javascript">
+        document.querySelectorAll(".btn-remove-pizza").forEach(btn => {
+            btn.addEventListener("click", function(e) {
+                e.preventDefault();
+                const id = e.target.dataset.id
+                fetch("/api/v1/pizza/" + id, {
+                    method: 'DELETE',
+                }).then(x => {
+                    const row = document.querySelector("#pizza-row-" + id);
+                    row.parentElement.removeChild(row);
+                })
+                    .catch(err => console.error(err));
+            })
+        })
+    </script>
+}

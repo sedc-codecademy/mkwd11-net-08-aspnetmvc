@@ -1,0 +1,22 @@
+﻿@model PizzaViewModel
+
+<a class="btn btn-primary" asp-action="Index" asp-controller="Pizza"> 
+    Go to pizza list
+</a>
+
+<form asp-action="Update" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" />
+    </div>
+    <div>
+        <label asp-for="Price"></label>
+        <input asp-for="Price" />
+    </div>
+    <div>
+        <label asp-for="IsOnPromotion"></label>
+        <input asp-for="IsOnPromotion" />
+    </div>
+    <button type="submit">Update</button>
+</form>
