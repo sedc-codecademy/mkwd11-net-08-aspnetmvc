@@ -1,25 +1,38 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using SEDC.PizzaApp.Data.Enums;
+using SEDC.PizzaApp.Data.Repositories;
 using SEDC.PizzaApp.Web.Data;
 using SEDC.PizzaApp.Web.Mapper;
-using SEDC.PizzaApp.Web.Models.Domain;
-using SEDC.PizzaApp.Web.Models.Enums;
-using SEDC.PizzaApp.Web.Models.ViewModels;
+using SEDC.PIzzaApp.BLL.DTOs.Orders;
+using SEDC.PIzzaApp.BLL.Services;
+using SEDC.PIzzaApp.BLL.Services.Implementation;
+using SEDC.UserApp.BLL.Services;
 
 namespace SEDC.PizzaApp.Web.Controllers
 {
     public class OrderController : Controller
     {
+        private readonly IOrderService orderService;
+        private readonly IUserService userService;
+        private readonly ILogger<OrderController> logger;
+
+        public OrderController(ILogger<OrderController> logger, IOrderService orderService, IUserService userService)
+        {
+            this.logger = logger;
+            this.orderService = orderService;
+            this.userService = userService;
+        }
         public IActionResult Index()
         {
-            var viewModels = PizzaAppDb.Orders.Select(x => x.ToViewModel());
+            var viewModels = orderService.GetAll();
             return View(viewModels);
         }
 
         [HttpGet]
         public IActionResult Create()
         {
-            ViewBag.Users = PizzaAppDb.Users.Select(x => x.ToViewModel());
+            ViewBag.Users = userService.GetAll();
             //ViewBag.PaymentList = Enum.GetValues(typeof(PaymentMethod))
             //    .OfType<PaymentMethod>()
             //    .ToList();
@@ -32,22 +45,18 @@ namespace SEDC.PizzaApp.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(CreateOrderViewModel model)
+        public IActionResult Create(CreateOrderDTO model)
         {
-            var user = PizzaAppDb.Users.FirstOrDefault(x => x.Id == model.UserId);
-
-            if(user == null)
+            try
             {
+                var orderDTO = orderService.Create(model);
+            }
+            catch(Exception ex)
+            {
+                logger.LogError(ex, ex.Message);
                 return View("NotFoundView");
             }
-            var order = new Order(user, model.PaymentMethod)
-            {
-                Id = PizzaAppDb.Orders.Max(x => x.Id) + 1
-            };
-            user.Orders.Add(order);
 
-
-            PizzaAppDb.Orders.Add(order);
             return RedirectToAction("Index");
         }
 
@@ -58,46 +67,53 @@ namespace SEDC.PizzaApp.Web.Controllers
             {
                 return View("ViewNotFound");
             }
-            var order = PizzaAppDb.Orders.FirstOrDefault(x => x.Id == id);
-
-            if(order == null)
+            try
             {
-                return View("ViewNotFound");
-            }
+                var order = orderService.GetById(id.Value);
+                return View(order);
 
-            return View(order.ToDetailsViewModel());
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, ex.Message);
+                return View("NotFoundView");
+            }
         }
 
         [HttpGet]
         public IActionResult Update(int? id)
         {
-            if(id == null)
+            if (id == null)
             {
                 return View("ViewNotFound");
             }
-
-            var order = PizzaAppDb.Orders.FirstOrDefault(x => x.Id == id);
-
-            if(order == null)
+            try
             {
-                return View("ViewNotFound");
-            }
+                var order = orderService.GetById(id.Value);
+                return View(order);
 
-            return View(order.ToViewModel());
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, ex.Message);
+                return View("NotFoundView");
+            }
         }
 
         [HttpPost]
-        public IActionResult Update(OrderViewModel model)
+        public IActionResult Update(OrderDTO model)
         {
-            var order = PizzaAppDb.Orders.FirstOrDefault(x => x.Id == model.Id);
-            if(order == null)
-            {
-                return View("ViewNotFound");
-            }
 
-            order.PaymentMethod = model.PaymentMethod;
-            // saveChanges
-            return RedirectToAction("Index");
+            try
+            {
+                var order = orderService.Update(model);
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, ex.Message);
+                return View("NotFoundView");
+            }
         }
     }
 }

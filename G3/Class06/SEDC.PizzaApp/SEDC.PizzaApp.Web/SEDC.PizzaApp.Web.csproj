@@ -10,4 +10,12 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.14" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SEDC.PIzzaApp.BLL\SEDC.PIzzaApp.BLL.csproj" />
+  </ItemGroup>
+
 </Project>

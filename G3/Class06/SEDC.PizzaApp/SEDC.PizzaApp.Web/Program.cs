@@ -1,8 +1,15 @@
+using SEDC.PIzzaApp.BLL.Services;
+using SEDC.PIzzaApp.BLL.Services.Implementation;
+using SEDC.UserApp.BLL.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDistributedMemoryCache();
+builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddScoped<IUserService, UserService>();
+
 builder.Services.AddSession(x =>
 {
     x.IdleTimeout = TimeSpan.FromHours(1);
