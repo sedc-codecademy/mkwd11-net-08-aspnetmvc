@@ -67,5 +67,37 @@ namespace SEDC.PizzaApp.Web.Controllers
 
             return View(order.ToDetailsViewModel());
         }
+
+        [HttpGet]
+        public IActionResult Update(int? id)
+        {
+            if(id == null)
+            {
+                return View("ViewNotFound");
+            }
+
+            var order = PizzaAppDb.Orders.FirstOrDefault(x => x.Id == id);
+
+            if(order == null)
+            {
+                return View("ViewNotFound");
+            }
+
+            return View(order.ToViewModel());
+        }
+
+        [HttpPost]
+        public IActionResult Update(OrderViewModel model)
+        {
+            var order = PizzaAppDb.Orders.FirstOrDefault(x => x.Id == model.Id);
+            if(order == null)
+            {
+                return View("ViewNotFound");
+            }
+
+            order.PaymentMethod = model.PaymentMethod;
+            // saveChanges
+            return RedirectToAction("Index");
+        }
     }
 }
