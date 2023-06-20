@@ -31,7 +31,7 @@
 
 - GetAllBikes should display all bikes from the database in the unorderd html list
 - GetAllBikesWithHydraulicBreaks should display bikes from the database that have hydraulic breaks in the unorderd html list
-- GetBikeById should show a details about one specific buy that will be found by its id
+- GetBikeById should show a details about one specific bike that will be found by it's id
 - DeleteBike should find and delete the bike by Id if that bike exists in the database ** bonus
 
 ### 6. For displaying the bikes use view models that will be used buy the view, and create apropriate mappers that will convert the data from domain to view model. Map only the necessary data needed for the view.
