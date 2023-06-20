@@ -1,0 +1,19 @@
+﻿@using SEDC.PizzaApp.Models.Domain
+
+@*---------old code - when we send domain model to the view---------*@
+@*@model Order
+
+<p>The user @Model.User.FirstName @Model.User.LastName ordered the pizza @Model.Pizza.Name</p>
+<p>The user paid by @Model.PaymentMethod</p>*@
+
+
+@*------------NEW CODE with view models------------*@
+
+<h2>Order details:</h2>
+<h4>@ViewBag.Message</h4>
+
+@using SEDC.PizzaApp.Models.ViewModels
+@model OrderDetailsViewModel
+<p>@Model.UserFullname ordered @Model.PizzaName. @Model.UserFullname paid @Model.Price by @Model.PaymentMethod.</p>
+
+<h4>The first user in our app is: @ViewBag.User.FirstName</h4>

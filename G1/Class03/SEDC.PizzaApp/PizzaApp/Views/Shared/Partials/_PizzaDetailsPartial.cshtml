@@ -1,0 +1,24 @@
+﻿@model PizzaDetailsViewModel
+
+<h2>Pizza ingredients:</h2>
+@foreach (var item in Model.Ingredients)
+{
+    <h4>@item</h4>
+}
+
+<h3>Pizza sizes:</h3>
+@foreach (var item in Model.PizzaSizes)
+{
+    <h4>@item</h4>
+}
+
+<br />
+
+@if (@Model.IsOnPromotion)
+{
+    <h3 class="text-success">ON PROMOTION</h3>
+}
+else
+{
+    <h3 class="text-danger">NOT ON PROMOTION</h3>
+}

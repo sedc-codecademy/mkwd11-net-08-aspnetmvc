@@ -1,0 +1,45 @@
+﻿@model OrderDetailsViewModel
+
+<partial name="~/Views/Shared/Partials/_OrderGreetingPartial.cshtml" />
+
+<h2>Order details:</h2>
+<h4>@ViewBag.Message</h4>
+
+@* USING STANDARD VIEW MODEL *@
+@*
+    @{
+        string messageDelivered = string.Empty;
+        if (Model.Delivered)
+        {
+            messageDelivered = "The order is delivered";
+        }
+        else
+        {
+            messageDelivered = "The order was not delivered";
+        }
+    }
+*@
+
+
+@* USING STANDARD VIEW MODEL *@
+@*
+    <h2>Are you sure that you want to delete the following order:</h2>
+    <p>Pizza name: @Model.PizzaName</p>
+    <p>User: @($"Mr/Mrs: {Model.UserFullName}")</p>
+    <p>Payment method: @Model.PaymentMethod</p>
+    <p>Order price: @(Model.Price + Model.Price*0.1) DEN </p>
+*@
+
+@* USING PARTIAL VIEW *@
+<partial name="~/Views/Shared/Partials/_OrderDetailsPartial.cshtml" for="@Model" />
+
+<h4>The first user in our app is: @ViewBag.User.FirstName</h4>
+
+@if (Model.Delivered)
+{
+    <p>The order is delivered</p>
+}
+else
+{
+    <p>The order was not delivered</p>
+}

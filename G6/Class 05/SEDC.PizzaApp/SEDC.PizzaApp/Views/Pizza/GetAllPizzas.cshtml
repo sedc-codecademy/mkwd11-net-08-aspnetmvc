@@ -1,0 +1,12 @@
+﻿@model List<Pizza>
+@*the data that is sent from the method is of type List<Pizza>*@
+
+<h2>Pizzas:</h2>
+
+<ul>
+    @foreach(Pizza p in @Model)
+    {
+        <li>Name: @p.Name</li>
+    }
+
+</ul>

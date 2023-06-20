@@ -1,0 +1,15 @@
+﻿@model OrderListViewModel
+
+<h4>@ViewBag.Message</h4>
+
+<p>Pizza name: @Model.PizzaName</p>
+<p>User full name: @Model.UserFullName</p>
+<p>Pizza price: @Model.Price</p>
+<p>Payment method: @Model.PaymentMethod</p>
+
+<h2>Details about this user:</h2>
+<p>User first name: @ViewBag.User.FirstName</p>
+<p>User last name: @ViewBag.User.LastName</p>
+<p>User phone number: @ViewBag.User.PhoneNumber</p>
+<br/>
+<a class="btn btn-warning" asp-area="" asp-controller="Order" asp-action="Index">Back</a>

@@ -1,0 +1,12 @@
+﻿<h6 id="temperature">/</h6>
+<p id="description"></p>
+
+
+<script type="text/javascript">
+    $(function () {
+        $.get("https://goweather.herokuapp.com/weather/Skopje", function (data, status) {
+            $("#temperature").text(data.temperature);
+            $("#description").text(data.description);
+        });
+    });
+</script>

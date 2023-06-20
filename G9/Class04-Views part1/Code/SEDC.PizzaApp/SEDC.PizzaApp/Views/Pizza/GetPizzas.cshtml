@@ -1,0 +1,17 @@
+﻿@using SEDC.PizzaApp.Models.Domain
+@*the data is sent to the view is of type List<Pizza>*@
+@model List<Pizza>
+
+<h2>Pizzas:</h2>
+
+@*the content of _PizzaGreeting.cshtml will be replaced here*@
+<partial name="~/Views/Shared/Partials/_PizzaGreeting.cshtml"/>
+
+@*Model is of type List<Pizza>*@
+<ul>
+    @for (int i = 0; i < @Model.Count; i++)
+    {
+        <li>@Model.ElementAt(i).Name</li>
+    }
+
+</ul>

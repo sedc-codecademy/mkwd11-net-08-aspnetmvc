@@ -1,0 +1,23 @@
+﻿@model IEnumerable<UserViewModel>
+<a class="btn btn-link" asp-action="Create">Create user</a>
+<table>
+    <thead>
+        <tr>
+            <th>
+                FullName
+            </th>
+            <th>
+                Phone
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var user in Model)
+        {
+            <tr>
+                <td>@user.FullName</td>
+                <td>@user.Phone</td>
+            </tr>
+        }
+    </tbody>
+</table>

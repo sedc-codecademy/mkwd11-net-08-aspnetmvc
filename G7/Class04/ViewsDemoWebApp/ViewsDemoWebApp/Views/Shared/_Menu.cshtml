@@ -1,0 +1,9 @@
+﻿@model List<MenuItemViewModel>
+
+<h6>Menu: </h6>
+<ul>
+    @for(var i = 0; i < Model.Count; i++)
+    {
+        <li>@Model[i].Name - @Model[i].Price ден.</li>
+    }
+</ul>
