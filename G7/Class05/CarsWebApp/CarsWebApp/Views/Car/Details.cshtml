@@ -1,0 +1,68 @@
+﻿@model Car
+
+@*a tag*@
+@Html.ActionLink("Cars list", "Index")
+<a asp-action="Index">Cars list</a>
+
+<a href="/Car/Index">Cars list</a>
+
+@Html.ActionLink("Home", "Index", "Home")
+<a asp-action="Index" asp-controller="Home">Home</a>
+
+@*<a href="/Home/Index">Home</a>*@
+
+@Html.ActionLink("Privacy", "Privacy", "Home")
+<a asp-action="Privacy" asp-controller="Home">Privacy</a>
+
+
+@Html.Display("FuelType")
+@Html.DisplayFor(x => x.FuelType)
+@Model.FuelType
+
+@*label tag*@
+@Html.Label("NumberOfDoors")
+@Html.LabelFor(x => x.NumberOfDoors)
+<label asp-for="NumberOfDoors"></label>
+<br />
+@Html.LabelFor(x => x.NumberOfDoors): @Html.DisplayFor(x => x.NumberOfDoors)
+<label asp-for="NumberOfDoors"></label>: @Model.NumberOfDoors
+<br />
+@*input tag*@
+@Html.TextBox("Model")
+@Html.TextBoxFor(x => x.Model)
+<input asp-for="Model"/>
+<br />
+@*For the dropdown we send as first param the property that is matching from the Model, and as a second the list with the other options. The list needs to be from type IEnumerable<SelectListItem> (List<SelectListItem>)*@
+@Html.DropDownListFor(x => x.Manufacturer, Html.GetEnumSelectList(Model.Manufacturer.GetType()), "-- Select the model --")
+<select class="form-select" asp-for="Manufacturer" asp-items="Html.GetEnumSelectList(Model.Manufacturer.GetType())">
+    <option value="">-- Select the model --</option>
+</select>
+<br />
+@*hidden field*@
+@Html.Hidden("Id")
+@Html.HiddenFor(x => x.Id)
+<input asp-for="Id" type="hidden" />
+<br />
+@{
+    //var fuelTypes = new List<KeyValuePair<int, string>> {
+    //    new KeyValuePair<int, string>((int)FuelType.Petrol, FuelType.Petrol.ToString()),
+    //    new KeyValuePair<int, string>((int)FuelType.Diesel, FuelType.Diesel.ToString()),
+    //    new KeyValuePair<int, string>((int)FuelType.Electric, FuelType.Electric.ToString()),
+    //    new KeyValuePair<int, string>((int)FuelType.Hybrid, FuelType.Hybrid.ToString())
+    //};
+
+    //foreach (var type in fuelTypes)
+    //{
+    //    <input type="radio" asp-for="FuelType" value="@type.Key">@type.Value<br/>
+    //}
+
+    //Html.GetEnumSelectList returns back List<SelectListItem> that contains two properties Value and Text. 
+    //Value matches the value of the enum (1,2,3,4), Text matches text of the enum (Petrol, Diesel, Electric, Hybrid)
+    foreach (var type in Html.GetEnumSelectList(Model.FuelType.GetType()))
+    {
+        <input type="radio" asp-for="FuelType" value="@type.Value">
+
+        @type.Text
+        <br />
+    }
+}
