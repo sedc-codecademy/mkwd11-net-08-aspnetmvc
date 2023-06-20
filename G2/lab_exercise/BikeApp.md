@@ -1,8 +1,8 @@
 
 # Lab Exervise - Bike App
 
-## 1. Create mvc application in .net 6 called BikeApp
-## 2. Define the models of the application
+### 1. Create mvc application in .net 6 called BikeApp
+### 2. Define the models of the application
 
 ### Bike model: (class)
 
@@ -18,9 +18,9 @@
 - Road
 - City
 
-## 3. Create in memory database that contains list of bikes and seed it with atleast 3 different bikes
+### 3. Create in memory database that contains list of bikes and seed it with atleast 3 different bikes
 
-## 4. Create Bike Controller with 4 actions 
+### 4. Create Bike Controller with 4 actions 
 
 - GetAllBikes
 - GetAllBikesWithHydraulicBreaks
