@@ -1,5 +1,5 @@
 
-# Lab Exervise - Bike App
+# Lab Exercise - Bike App
 
 ### 1. Create mvc application in .net 6 called BikeApp
 ### 2. Define the models of the application
@@ -7,10 +7,10 @@
 ### Bike model: (class)
 
 - Id: int
-- Manufacturing Came: string (Brand)
-- Wheel Diameter: int (26, 27.5, 29)
-- Gears: int (18,22,24 speeds)
-- Has Hydraulic Breaks: boolean
+- Manufacturing Name: string (Brand)
+- Wheel Diameter: int (26, 27, 29)
+- Gears: int (18, 22, 24 speeds)
+- Has Hydraulic Breaks: bool
 - Bike Type: enum
 
 #### Bike Type: (enum)
