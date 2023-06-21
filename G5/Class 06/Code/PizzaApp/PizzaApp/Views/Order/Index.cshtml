@@ -1,0 +1,33 @@
+﻿@*this is the first example, when we are sending a model (domain) to the view*@
+@*@model List<Order>
+
+    <h2>Made orders:</h2>
+
+    <ol>
+    @for(int i =0; i<@Model.Count; i++)
+    {
+        <li>@Model.ElementAt(i).Id - @Model.ElementAt(i).Pizza.Name - User: @Model.ElementAt(i).User.FirstName</li>
+    }
+
+    </ol>*@
+
+@model List<OrderDetailsViewModel>
+
+<h2>There are @ViewData["NumberOfOrders"] orders made in our app.</h2>
+<h4>@ViewData["Title"]</h4>
+<a asp-controller="Order" asp-action="CreateOrder">Create order</a>
+    <ol>
+    @for(int i =0; i< Model.Count; i++)
+    {
+        @*This is the example from the previous class*@
+        @*  <li>@Model.ElementAt(i).PizzaName - @Model.ElementAt(i).UserFullName - @Model.ElementAt(i).Price</li>*@
+
+    var tmp = @Model.ElementAt(i);
+      <p>=====================================================================================</p>
+        <partial name="~/Views/Shared/Partials/_OrderDetailsPartial.cshtml" for = "@tmp"/> //@Model[i]
+        <a asp-controller="Order" asp-action="Details" asp-route-id="@Model[i].Id">See details</a>
+        <a asp-controller="Order" asp-action="EditOrder" asp-route-id="@Model[i].Id">Edit</a>
+        <a asp-controller="Order" asp-action="DeleteOrder" asp-route-id="@Model[i].Id">Delete</a>
+    }
+
+</ol>
