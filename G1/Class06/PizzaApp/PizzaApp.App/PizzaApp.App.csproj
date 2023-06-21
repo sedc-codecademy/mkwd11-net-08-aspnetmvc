@@ -13,4 +13,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PizzaApp.Helpers\PizzaApp.Helpers.csproj" />
+  </ItemGroup>
+
 </Project>

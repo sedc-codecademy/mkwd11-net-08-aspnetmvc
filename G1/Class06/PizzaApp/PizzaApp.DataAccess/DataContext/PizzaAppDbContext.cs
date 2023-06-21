@@ -1,6 +1,7 @@
 ﻿namespace PizzaApp.DataAccess.DataContext
 {
     using Microsoft.EntityFrameworkCore;
+    using PizzaApp.Domain.Enums;
     using PizzaApp.Domain.Models;
 
     public class PizzaAppDbContext : DbContext
@@ -40,7 +41,7 @@
                 {
                     Id = 1,
                     IsOnPromotion = false,
-                    Name="Capriciosa"
+                    Name = "Capriciosa"
                 },
                 new Pizza
                 {
@@ -60,6 +61,67 @@
                     IsOnPromotion = false,
                     Name = "Pepperoni"
                 });
+
+            modelBuilder.Entity<User>()
+                .HasData(
+                new User()
+                {
+                    Id = 1,
+                    Address = "Rekord Skopje",
+                    FirstName = "Stojan",
+                    LastName = "Stojanovski"
+                },
+               new User()
+               {
+                   Id = 2,
+                   Address = "Drzava Aerodrom",
+                   FirstName = "Kate",
+                   LastName = "Katerinska"
+               });
+
+            modelBuilder.Entity<Order>()
+                .HasData(
+                new Order()
+                {
+                    Id = 1,
+                    IsDelivered = false,
+                    Location = "Centar",
+                    PaymentMethod = PaymentMethodEnum.Card,
+                    UserId = 2
+                },
+                new Order()
+                {
+                    Id = 2,
+                    IsDelivered = true,
+                    Location = "Taftalidze",
+                    PaymentMethod = PaymentMethodEnum.Cash,
+                    UserId = 1
+                });
+
+            modelBuilder.Entity<PizzaOrder>()
+                .HasData(
+                new PizzaOrder()
+                {
+                    Id = 1,
+                    OrderId = 1,
+                    PizzaId = 1,
+                    PizzaSize = PizzaSizeEnum.Standard
+                },
+                new PizzaOrder()
+                {
+                    Id = 2,
+                    OrderId = 1,
+                    PizzaId = 2,
+                    PizzaSize = PizzaSizeEnum.Family
+                },
+                new PizzaOrder()
+                {
+                    Id = 3,
+                    OrderId = 2,
+                    PizzaId = 3,
+                    PizzaSize = PizzaSizeEnum.Standard
+                }
+                );
         }
     }
 }
