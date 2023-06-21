@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33627.172
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzaApp.Refactored.07", "PizzaApp.Refactored.07\PizzaApp.Refactored.07.csproj", "{EFF1ABD6-793B-4AA2-B5A3-060D2380C5FB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzaApp.Refactored.07.DataAccess", "PizzaApp.Refactored.07.DataAccess\PizzaApp.Refactored.07.DataAccess.csproj", "{0D159188-28F2-4C72-8300-58A349444FFB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzaApp.Refactored.07.Domain", "PizzaApp.Refactored.07.Domain\PizzaApp.Refactored.07.Domain.csproj", "{A6BC8948-C2C0-4D27-8DB7-D7C29C6BD928}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzaApp.Refactored.07.Helpers", "PizzaApp.Refactored.07.Helpers\PizzaApp.Refactored.07.Helpers.csproj", "{626BA45D-9E80-4A6B-8299-07865A473A07}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzaApp.Refactored.07.Mappers", "PizzaApp.Refactored.07.Mappers\PizzaApp.Refactored.07.Mappers.csproj", "{A21E3F04-739D-4443-99A3-1D4D13A8A4A0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzaApp.Refactored.07.Services", "PizzaApp.Refactored.07.Services\PizzaApp.Refactored.07.Services.csproj", "{383AA617-0659-4796-973B-E5742B7DD74D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzaApp.Refactored.07.Shared", "PizzaApp.Refactored.07.Shared\PizzaApp.Refactored.07.Shared.csproj", "{2F17F32F-BEB6-4727-AA2A-B0B163C2DB14}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzaApp.Refactored.07.ViewModels", "PizzaApp.Refactored.07.ViewModels\PizzaApp.Refactored.07.ViewModels.csproj", "{09C65E70-1727-4A0D-9160-43153FDF76DF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EFF1ABD6-793B-4AA2-B5A3-060D2380C5FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFF1ABD6-793B-4AA2-B5A3-060D2380C5FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFF1ABD6-793B-4AA2-B5A3-060D2380C5FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFF1ABD6-793B-4AA2-B5A3-060D2380C5FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D159188-28F2-4C72-8300-58A349444FFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D159188-28F2-4C72-8300-58A349444FFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D159188-28F2-4C72-8300-58A349444FFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D159188-28F2-4C72-8300-58A349444FFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6BC8948-C2C0-4D27-8DB7-D7C29C6BD928}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6BC8948-C2C0-4D27-8DB7-D7C29C6BD928}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6BC8948-C2C0-4D27-8DB7-D7C29C6BD928}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6BC8948-C2C0-4D27-8DB7-D7C29C6BD928}.Release|Any CPU.Build.0 = Release|Any CPU
+		{626BA45D-9E80-4A6B-8299-07865A473A07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{626BA45D-9E80-4A6B-8299-07865A473A07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{626BA45D-9E80-4A6B-8299-07865A473A07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{626BA45D-9E80-4A6B-8299-07865A473A07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A21E3F04-739D-4443-99A3-1D4D13A8A4A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A21E3F04-739D-4443-99A3-1D4D13A8A4A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A21E3F04-739D-4443-99A3-1D4D13A8A4A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A21E3F04-739D-4443-99A3-1D4D13A8A4A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{383AA617-0659-4796-973B-E5742B7DD74D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{383AA617-0659-4796-973B-E5742B7DD74D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{383AA617-0659-4796-973B-E5742B7DD74D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{383AA617-0659-4796-973B-E5742B7DD74D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F17F32F-BEB6-4727-AA2A-B0B163C2DB14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F17F32F-BEB6-4727-AA2A-B0B163C2DB14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F17F32F-BEB6-4727-AA2A-B0B163C2DB14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F17F32F-BEB6-4727-AA2A-B0B163C2DB14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09C65E70-1727-4A0D-9160-43153FDF76DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09C65E70-1727-4A0D-9160-43153FDF76DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09C65E70-1727-4A0D-9160-43153FDF76DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09C65E70-1727-4A0D-9160-43153FDF76DF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9195D612-E1C4-4726-8558-BB2B5A768C30}
+	EndGlobalSection
+EndGlobal
