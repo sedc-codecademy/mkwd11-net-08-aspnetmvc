@@ -1,0 +1,16 @@
+﻿
+@model OrderDetailsViewModel
+
+@*<h2>Order details:</h2>*@
+
+<partial name="~/Views/Shared/Partials/_OrdersHeaderPartial.cshtml" />
+
+<h2>@ViewData["Title"]</h2>
+
+@*<p>User: @Model.UserFullName</p>
+<p>Pizza: @Model.PizzaName</p>
+<p>Price: @Model.OrderPrice</p>
+<p>Payment method: @Model.PaymentMethod</p>*@
+
+@*we send the model to the partial, so it can display the details*@
+<partial name="~/Views/Shared/Partials/_OrderDetailsPartial.cshtml" for="@Model"/>

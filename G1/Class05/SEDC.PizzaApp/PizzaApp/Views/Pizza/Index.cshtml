@@ -1,0 +1,12 @@
+﻿@model List<PizzaListViewModel>
+
+<h2>List of pizzas:</h2>
+<br />
+<div class="card-container">
+    @foreach (var pizza in @Model)
+    {
+        <partial name="~/Views/Shared/Partials/_PizzaListCardPartial.cshtml" for="@pizza" />
+    }
+</div>
+<br />
+<a class="btn btn-warning" asp-area="" asp-controller="Home" asp-action="Index">Home page</a>

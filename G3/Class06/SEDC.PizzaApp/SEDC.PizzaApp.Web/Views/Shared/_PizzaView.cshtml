@@ -1,0 +1,59 @@
+﻿@model IEnumerable<PizzaViewModel>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                IsOnPromotion
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var pizza in Model)
+        {
+            <tr id="pizza-row-@pizza.Id">
+                <td>
+                    @pizza.Name
+                </td>
+                <td>
+                    @pizza.Price
+                </td>
+                <td>
+                    @(pizza.IsOnPromotion ? "Yes" : "No")
+                </td>
+                <td>
+                    <a class="btn btn-primary" 
+                        asp-controller="Pizza" 
+                        asp-action="Details"
+                        asp-route-id="@pizza.Id"
+                    >
+                        Details
+                    </a>
+
+                    <a class="btn btn-primary" 
+                        asp-controller="Pizza" 
+                        asp-action="Update"
+                        asp-route-id="@pizza.Id"
+                    >
+                        Update
+                    </a>
+@*                    <form asp-action="Delete" asp-route-id="@pizza.Id" method="post">
+                        <button>Remove</button>
+                    </form>*@
+                    <button class="btn btn-danger btn-remove-pizza" data-id="@pizza.Id"> Remove</button>
+                </td>
+             </tr>
+        }
+    </tbody>
+</table>
+

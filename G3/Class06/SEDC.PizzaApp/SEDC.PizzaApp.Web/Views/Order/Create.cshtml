@@ -1,0 +1,16 @@
+﻿@model CreateOrderViewModel
+
+
+<form asp-controller="Order" asp-action="Create">
+    <div class="form-control">
+        <label for="UserId">User</label>
+        <select asp-for="UserId" asp-items="@(new SelectList(@ViewBag.Users, "Id", "FullName"))">
+        </select>
+    </div>
+    <div class="form-control">
+        <label asp-for="PaymentMethod"></label>
+            <select asp-for="PaymentMethod" asp-items="ViewBag.PaymentList">
+            </select>
+    </div>
+    <button>Submit</button>
+</form>

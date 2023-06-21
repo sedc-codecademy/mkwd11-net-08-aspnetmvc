@@ -21,7 +21,7 @@ namespace NewsPortalWebApp.Controllers
         public IActionResult SearchNews(string searchCriteria)
         {
             var searchedNews = StaticDb.PortalNews.Where(x => x.Title.Contains(searchCriteria) || x.Text.Contains(searchCriteria)).ToList();
-            return View();
+            return View(searchedNews);
         }
     }
 }

@@ -1,0 +1,150 @@
+[{
+    "id": 1,
+    "abbreviation": "ATL",
+    "name": "Hawks"
+},
+{
+    "id": 2,
+    "abbreviation": "BOS",
+    "name": "Celtics"
+},
+{
+    "id": 3,
+    "abbreviation": "BKN",
+    "name": "Nets"
+},
+{
+    "id": 4,
+    "abbreviation": "CHA",
+    "name": "Hornets"
+},
+{
+    "id": 5,
+    "abbreviation": "CHI",
+    "name": "Bulls"
+},
+{
+    "id": 6,
+    "abbreviation": "CLE",
+    "name": "Cavaliers"
+},
+{
+    "id": 7,
+    "abbreviation": "DAL",
+    "name": "Mavericks"
+},
+{
+    "id": 8,
+    "abbreviation": "DEN",
+    "name": "Nuggets"
+},
+{
+    "id": 9,
+    "abbreviation": "DET",
+    "name": "Pistons"
+},
+{
+    "id": 10,
+    "abbreviation": "GSW",
+    "name": "Warriors"
+},
+{
+    "id": 11,
+    "abbreviation": "HOU",
+    "name": "Rockets"
+},
+{
+    "id": 12,
+    "abbreviation": "IND",
+    "name": "Pacers"
+},
+{
+    "id": 13,
+    "abbreviation": "LAC",
+    "name": "Clippers"
+},
+{
+    "id": 14,
+    "abbreviation": "LAL",
+    "name": "Lakers"
+},
+{
+    "id": 15,
+    "abbreviation": "MEM",
+    "name": "Grizzlies"
+},
+{
+    "id": 16,
+    "abbreviation": "MIA",
+    "name": "Heat"
+},
+{
+    "id": 17,
+    "abbreviation": "MIL",
+    "name": "Bucks"
+},
+{
+    "id": 18,
+    "abbreviation": "MIN",
+    "name": "Timberwolves"
+},
+{
+    "id": 19,
+    "abbreviation": "NOP",
+    "name": "Pelicans"
+},
+{
+    "id": 20,
+    "abbreviation": "NYK",
+    "name": "Knicks"
+},
+{
+    "id": 21,
+    "abbreviation": "OKC",
+    "name": "Thunder"
+},
+{
+    "id": 22,
+    "abbreviation": "ORL",
+    "name": "Magic"
+},
+{
+    "id": 23,
+    "abbreviation": "PHI",
+    "name": "76ers"
+},
+{
+    "id": 24,
+    "abbreviation": "PHX",
+    "name": "Suns"
+},
+{
+    "id": 25,
+    "abbreviation": "POR",
+    "name": "Trail Blazers"
+},
+{
+    "id": 26,
+    "abbreviation": "SAC",
+    "name": "Kings"
+},
+{
+    "id": 27,
+    "abbreviation": "SAS",
+    "name": "Spurs"
+},
+{
+    "id": 28,
+    "abbreviation": "TOR",
+    "name": "Raptors"
+},
+{
+    "id": 29,
+    "abbreviation": "UTA",
+    "name": "Jazz"
+},
+{
+    "id": 30,
+    "abbreviation": "WAS",
+    "name": "Wizards"
+}]
