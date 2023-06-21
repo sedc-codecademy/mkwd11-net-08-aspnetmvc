@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>PizzaApp.Refactored._07.Services</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PizzaApp.Refactored.07.Shared\PizzaApp.Refactored.07.Shared.csproj" />
+    <ProjectReference Include="..\PizzaApp.Refactored.07.DataAccess\PizzaApp.Refactored.07.DataAccess.csproj" />
+    <ProjectReference Include="..\PizzaApp.Refactored.07.Domain\PizzaApp.Refactored.07.Domain.csproj" />
+    <ProjectReference Include="..\PizzaApp.Refactored.07.Mappers\PizzaApp.Refactored.07.Mappers.csproj" />
+    <ProjectReference Include="..\PizzaApp.Refactored.07.ViewModels\PizzaApp.Refactored.07.ViewModels.csproj" />
+  </ItemGroup>
+
+</Project>

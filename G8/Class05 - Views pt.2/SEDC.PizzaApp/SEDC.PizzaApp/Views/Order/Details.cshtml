@@ -1,0 +1,25 @@
+﻿@model OrderDetailsViewModel
+
+<h2>Order details</h2>
+
+@* <p>The user @Model.UserFullname ordered @Model.PizzaName</p>
+ <p>The price of the order is @Model.Price</p>*@
+
+
+@* //////////////////////////////////////////////////////////////
+        We need to send an object of type OrderDetailsViewModel to the partial view
+        That is why we send the model of the Details view as a model to the partial view
+        //////////////////////////////////////////////////////////*@
+@*<partial name="~/Views/Shared/Partials/_OrderDetailsPartial.cshtml" for="@Model" />*@
+@Html.Partial("~/Views/Shared/Partials/_OrderDetailsPartial.cshtml", Model)
+
+
+
+@*========ACTION LINKS==============*@
+@*<a asp-action="Index">Back to Orders page</a>*@
+@Html.ActionLink("Back to Orders page", "Index")
+
+@*
+========ACTION LINK TO ACTION FROM DIFFERENT CONTROLLER===========*@
+@*@Html.ActionLink("Back to home page", "Index", "Home")*@
+<a asp-controller="Home" asp-action="Index">Back to home page</a>

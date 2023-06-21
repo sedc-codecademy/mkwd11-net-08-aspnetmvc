@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>PizzaApp.Refactored._07.Helpers</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PizzaApp.Refactored.07.DataAccess\PizzaApp.Refactored.07.DataAccess.csproj" />
+    <ProjectReference Include="..\PizzaApp.Refactored.07.Services\PizzaApp.Refactored.07.Services.csproj" />
+  </ItemGroup>
+
+</Project>
