@@ -12,7 +12,8 @@ namespace SEDC.PizzaApp.Mappers
                 PizzaName = order.Pizza.Name,
                 UserFullName = $"{order.User.FirstName} {order.User.LastName}",
                 PaymentMethod = order.PaymentMethod,
-                Price = order.Pizza.Price + 50
+                Price = order.Pizza.Price + 50,
+                Id = order.Id
             };
         }
 
@@ -23,7 +24,21 @@ namespace SEDC.PizzaApp.Mappers
                 PizzaName = order.Pizza.Name,
                 UserFullName = $"{order.User.FirstName} {order.User.LastName}",
                 PaymentMethod = order.PaymentMethod,
-                Price = order.Pizza.Price + 50
+                Price = order.Pizza.Price + 50,
+                Id = order.Id
+            };
+        }
+
+        public static OrderDetailsViewModel ToOrderDetailsViewModel(this Order order) 
+        {
+            return new OrderDetailsViewModel
+            {
+                Id = order.Id,
+                IsDelivered = order.Delivered,
+                PizzaName = order.Pizza.Name,
+                Price = order.Pizza.Price + 100,
+                UserFullName = $"{order.User.FirstName} {order.User.LastName}",
+                PaymentMethod = order.PaymentMethod
             };
         }
     }

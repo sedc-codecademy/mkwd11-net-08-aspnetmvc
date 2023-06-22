@@ -48,7 +48,6 @@ namespace SEDC.PizzaApp.Controllers
 
             return View(orderViewModels);
         }
-
         public IActionResult Details(int? id) 
         {
             if (id == null)
@@ -63,9 +62,45 @@ namespace SEDC.PizzaApp.Controllers
                 return RedirectToAction("Error", "Pizza");
             }
 
-            OrderViewModel orderViewModel = order.ToOrderViewModelExtension();
+            OrderDetailsViewModel viewModel = order.ToOrderDetailsViewModel();
 
-            return View(orderViewModel);
+            return View(viewModel);
+        }
+
+        public IActionResult Delete(int? id) 
+        {
+            if (id == null) 
+            {
+                return new EmptyResult();
+            }
+
+            Order order = StaticDb.Orders.FirstOrDefault(order => order.Id == id);
+
+            if (order == null)
+            {
+                return new EmptyResult();
+            }
+
+            OrderDetailsViewModel viewModel = order.ToOrderDetailsViewModel();
+            return View(viewModel);
+        }
+
+        public IActionResult ConfirmDelete(int? id) 
+        {
+            if (id == null)
+            {
+                return new EmptyResult();
+            }
+
+            Order order = StaticDb.Orders.FirstOrDefault(order => order.Id == id);
+
+            if (order == null)
+            {
+                return new EmptyResult();
+            }
+
+            StaticDb.Orders.Remove(order);
+            return RedirectToAction("Index");
         }
     }
 }

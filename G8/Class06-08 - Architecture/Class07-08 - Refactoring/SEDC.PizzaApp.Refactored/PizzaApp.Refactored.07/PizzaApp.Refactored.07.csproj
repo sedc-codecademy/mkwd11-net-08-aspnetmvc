@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>PizzaApp.Refactored._07</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PizzaApp.Refactored.07.Helpers\PizzaApp.Refactored.07.Helpers.csproj" />
+    <ProjectReference Include="..\PizzaApp.Refactored.07.Services\PizzaApp.Refactored.07.Services.csproj" />
+    <ProjectReference Include="..\PizzaApp.Refactored.07.ViewModels\PizzaApp.Refactored.07.ViewModels.csproj" />
+  </ItemGroup>
+
+</Project>

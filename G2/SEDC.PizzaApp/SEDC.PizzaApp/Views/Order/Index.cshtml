@@ -1,9 +1,26 @@
 ﻿@using SEDC.PizzaApp.Models.ViewModels
 @model List<OrderViewModel>
 
+@{
+    ViewData["Title"] = "List of orders";
+}
+
+<partial name="~/Views/Shared/Partials/_OrderGreetingPartial.cshtml" />
+
+<h2>List of orders:</h2>
+
 <ol>
-    @for (int i = 0; i < @Model.Count; i++)
+    @foreach (OrderViewModel viewModel in @Model)
     {
-        <li>@Model.ElementAt(i).PizzaName - @Model.ElementAt(i).UserFullName - @Model.ElementAt(i).Price</li>   
+        <li>Pizza name: @viewModel.PizzaName - @viewModel.Price User: @viewModel.UserFullName</li>
+
+        // details
+        @*@Html.ActionLink("See Details", "Details", new { Id = @viewModel.Id }, new { @class = "btn btn-warning"})*@
+        <a asp-action="Details" asp-route-id="@viewModel.Id">See Details</a>
+
+        // delete
+        <a asp-action="Delete" asp-route-id="@viewModel.Id">Delete Order</a>
+
+        // edit
     }
 </ol>

@@ -1,0 +1,12 @@
+﻿@model OrderDetailsDTO
+
+
+
+<h2>
+    Order is made by @Model.By paid with @Model.PaymentMethod.ToString()
+</h2>
+
+<h3>
+    Pizzas ordered
+</h3>
+<partial name="_PizzaView" model="Model.Pizzas" />

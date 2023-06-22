@@ -1,6 +1,12 @@
-﻿@using SEDC.PizzaApp.Models.ViewModels;
-@model OrderViewModel;
+﻿@model OrderDetailsViewModel;
 
-<h2>Order details: </h2>
+@*<h2>Order details: </h2>
 
-<p>@Model.UserFullName ordered @Model.PizzaName @Model.UserFullName paid by @Model.Price by @Model.PaymentMethod.</p>
+<p>@Model.UserFullName ordered @Model.PizzaName @Model.UserFullName paid by @Model.Price by @Model.PaymentMethod.</p>*@
+
+@*@Html.Partial("~/Views/Shared/Partials/_OrderDetailsPartial.cshtml", @Model)*@
+<partial name="~/Views/Shared/Partials/_OrderDetailsPartial.cshtml" for=@Model/>
+
+@Html.ActionLink("Back to orders page", "Index")
+
+<a asp-controller="Home" asp-action="Index">Back to home page</a>
