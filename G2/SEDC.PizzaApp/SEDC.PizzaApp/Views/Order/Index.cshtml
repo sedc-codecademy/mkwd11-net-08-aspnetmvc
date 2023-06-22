@@ -15,9 +15,11 @@
         <li>Pizza name: @viewModel.PizzaName - @viewModel.Price User: @viewModel.UserFullName</li>
 
         // details
+        @*@Html.ActionLink("See Details", "Details", new { Id = @viewModel.Id }, new { @class = "btn btn-warning"})*@
         <a asp-action="Details" asp-route-id="@viewModel.Id">See Details</a>
 
         // delete
+        <a asp-action="Delete" asp-route-id="@viewModel.Id">Delete Order</a>
 
         // edit
     }
