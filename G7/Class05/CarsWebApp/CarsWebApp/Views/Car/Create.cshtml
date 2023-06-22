@@ -1,0 +1,38 @@
+﻿@model Car
+
+<h4>Create car:</h4>
+
+@*@using (Html.BeginForm("Create", "Car"))
+{
+    @Html.LabelFor(x => x.Model)
+    @Html.TextBoxFor(x => x.Model)
+    <br />
+    @Html.LabelFor(x => x.NumberOfDoors)
+    @Html.TextBoxFor(x => x.NumberOfDoors)
+    <br />
+    <button type="submit">Submit</button>
+}*@
+
+<div class="row">
+    <form asp-controller="Car" asp-action="Create" class="col-6">
+        <div class="form-group  mb-5">
+            <label asp-for="Model"></label>
+            <input asp-for="Model" class="form-control" />
+        </div>
+        <div class="form-group mb-5">
+            <label asp-for="NumberOfDoors"></label>
+            <input asp-for="NumberOfDoors" class="form-control" />
+        </div>
+        <div class="form-group mb-5">
+            <select class="form-select" asp-for="Manufacturer" asp-items="Html.GetEnumSelectList(Model.Manufacturer.GetType())">
+                <option value="">-- Select the model --</option>
+            </select>
+        </div>
+        <div class="form-group mb-5">
+            <select class="form-select" asp-for="FuelType" asp-items="Html.GetEnumSelectList(Model.FuelType.GetType())">
+                <option value="">-- Select the fuel type --</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-info">Submit</button>
+    </form>
+</div>
