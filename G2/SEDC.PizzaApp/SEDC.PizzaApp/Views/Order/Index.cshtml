@@ -1,5 +1,5 @@
 ﻿@using SEDC.PizzaApp.Models.ViewModels
-@model List<OrderViewModel>
+@model List<OrderListViewModel>
 
 @{
     ViewData["Title"] = "List of orders";
@@ -7,12 +7,14 @@
 
 <partial name="~/Views/Shared/Partials/_OrderGreetingPartial.cshtml" />
 
+<a class="btn btn-success" asp-action="CreateOrder">Create new order</a>
+
 <h2>List of orders:</h2>
 
 <ol>
-    @foreach (OrderViewModel viewModel in @Model)
+    @foreach (OrderListViewModel viewModel in @Model)
     {
-        <li>Pizza name: @viewModel.PizzaName - @viewModel.Price User: @viewModel.UserFullName</li>
+        <li>Pizza name: @viewModel.PizzaName - User: @viewModel.UserFullName</li>
 
         // details
         @*@Html.ActionLink("See Details", "Details", new { Id = @viewModel.Id }, new { @class = "btn btn-warning"})*@
@@ -24,3 +26,9 @@
         // edit
     }
 </ol>
+
+<h4>Fun facts:</h4>
+<p>Total number of orders: @ViewBag.NumberOfOrders</p>
+<p>First user of our app: @ViewBag.FirstUser.FirstName @ViewBag.FirstUser.LastName</p>
+
+<p>@ViewBag.Date</p>

@@ -1,0 +1,30 @@
+﻿@using SEDC.PizzaApp.Models.Enums
+@model OrderViewModel
+
+<h2>Create order:</h2>
+
+<div class="row">
+    <div class="col-md-4"> 
+
+        <form asp-action="CreteOrderPost" method="post">
+
+            <div class="form-group">
+                <label asp-for="PizzaName" class="control-label"></label>
+                <input asp-for="PizzaName" type="text" class="form-control"/>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Delieverd" class="control-label"></label>
+                <input asp-for="Delieverd" type="checkbox" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="PaymentMethod" class="control-label"></label>
+                <select asp-for="PaymentMethod" asp-items="Html.GetEnumSelectList<PaymentMethod>()" class="form-control"></select>
+            </div>
+
+            <button class="btn btn-warning" type="submit">Save</button>
+        </form>
+
+    </div>
+</div>
