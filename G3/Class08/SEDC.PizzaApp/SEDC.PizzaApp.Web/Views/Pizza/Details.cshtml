@@ -1,0 +1,14 @@
+﻿@model PizzaDTO
+
+@{
+    var promotionText = string.Empty;
+
+    if (Model.IsOnPromotion)
+    {
+        promotionText = " and is on promotion";
+    }
+}
+
+<div>
+    The pizza @Model.Name has a price @Model.Price @promotionText
+</div>

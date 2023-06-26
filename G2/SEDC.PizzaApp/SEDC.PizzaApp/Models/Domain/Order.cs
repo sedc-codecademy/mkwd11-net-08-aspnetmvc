@@ -10,5 +10,6 @@ namespace SEDC.PizzaApp.Models.Domain
         public int UserId { get; set; }
         public User User { get; set; }
         public PaymentMethod PaymentMethod { get; set; }
+        public bool Delivered { get; set; }
     }
 }
