@@ -42,13 +42,16 @@ namespace SEDC.PizzaApp.Controllers
             //    ordersFromDb.Select(order => OrderMapper.ToOrderViewModel(order)).ToList();
 
             //==MAPPING WITH EXTENSION METHOD AND LINQ==
-            List<OrderViewModel> orderViewModels =
-                ordersFromDb.Select(order => order.ToOrderViewModelExtension())
+            List<OrderListViewModel> orderViewModels =
+                ordersFromDb.Select(order => order.ToOrderListViewModel())
                 .ToList();
+
+            ViewBag.NumberOfOrders = orderViewModels.Count;
+            ViewBag.Date = DateTime.Now.ToShortDateString();
+            ViewBag.FirstUser = StaticDb.Orders.First().User;
 
             return View(orderViewModels);
         }
-
         public IActionResult Details(int? id) 
         {
             if (id == null)
@@ -63,9 +66,62 @@ namespace SEDC.PizzaApp.Controllers
                 return RedirectToAction("Error", "Pizza");
             }
 
-            OrderViewModel orderViewModel = order.ToOrderViewModelExtension();
+            OrderDetailsViewModel viewModel = order.ToOrderDetailsViewModel();
 
-            return View(orderViewModel);
+            return View(viewModel);
         }
+        public IActionResult Delete(int? id) 
+        {
+            if (id == null) 
+            {
+                return new EmptyResult();
+            }
+
+            Order order = StaticDb.Orders.FirstOrDefault(order => order.Id == id);
+
+            if (order == null)
+            {
+                return new EmptyResult();
+            }
+
+            OrderDetailsViewModel viewModel = order.ToOrderDetailsViewModel();
+            return View(viewModel);
+        }
+        public IActionResult ConfirmDelete(int? id) 
+        {
+            if (id == null)
+            {
+                return new EmptyResult();
+            }
+
+            Order order = StaticDb.Orders.FirstOrDefault(order => order.Id == id);
+
+            if (order == null)
+            {
+                return new EmptyResult();
+            }
+
+            StaticDb.Orders.Remove(order);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult CreateOrder() 
+        {
+            OrderViewModel viewModel = new OrderViewModel();
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public IActionResult CreteOrderPost(OrderViewModel viewModel) 
+        {
+
+
+
+            return RedirectToAction("Index");
+        }
+
+
     }
 }

@@ -1,5 +1,34 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model List<Car>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 bg-light text-right">
+            <a asp-action="Create" asp-controller="Car" class="btn btn-info">Create new</a>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Model</th>
+                    <th scope="col">Manufacture</th>
+                    <th scope="col">Fuel type</th>
+                    <th scope="col">Number of doors</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var car in Model)
+                {
+                    <tr>
+                        <th scope="row">@car.Id</th>
+                        <td>@car.Model</td>
+                        <td>@car.Manufacturer</td>
+                        <td>@car.FuelType</td>
+                        <td>@car.NumberOfDoors</td>
+                        <td><a asp-action="Details" asp-controller="Car" asp-route-id="@car.Id">Details</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
