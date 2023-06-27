@@ -8,6 +8,7 @@ namespace SEDC.PizzaApp.Controllers
 {
     public class OrderController : Controller
     {
+        [HttpGet]
         public IActionResult Index()
         {
             List<Order> ordersFromDb = StaticDb.Orders;
@@ -52,6 +53,8 @@ namespace SEDC.PizzaApp.Controllers
 
             return View(orderViewModels);
         }
+
+        [HttpGet]
         public IActionResult Details(int? id) 
         {
             if (id == null)
@@ -110,11 +113,14 @@ namespace SEDC.PizzaApp.Controllers
         {
             OrderViewModel viewModel = new OrderViewModel();
 
+            ViewBag.Users = StaticDb.Users.Select(user 
+                => user.MapToUserSelectViewModel()).ToList();
+
             return View(viewModel);
         }
 
         [HttpPost]
-        public IActionResult CreteOrderPost(OrderViewModel viewModel) 
+        public IActionResult CreateOrder(OrderViewModel viewModel) 
         {
 
 
