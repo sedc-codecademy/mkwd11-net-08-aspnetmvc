@@ -5,6 +5,8 @@ namespace SEDC.PizzaApp
 {
     public static class StaticDb
     {
+        public static int OderId = 2;
+
         public static List<Pizza> Pizzas = new List<Pizza>
         {
             new Pizza 
@@ -50,7 +52,8 @@ namespace SEDC.PizzaApp
                 UserId = 2,
                 Pizza = Pizzas.First(),
                 User = Users.First(user => user.Id == 2),
-                PaymentMethod = PaymentMethod.Cash
+                PaymentMethod = PaymentMethod.Cash,
+                Delivered = true
             },
             new Order
             {
@@ -59,7 +62,8 @@ namespace SEDC.PizzaApp
                 UserId = 1,
                 Pizza = Pizzas.First(),
                 User = Users.First(user => user.Id == 1),
-                PaymentMethod = PaymentMethod.Card
+                PaymentMethod = PaymentMethod.Card,
+                Delivered = false
             }
         };
     }

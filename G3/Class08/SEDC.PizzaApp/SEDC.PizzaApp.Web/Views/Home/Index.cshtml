@@ -1,0 +1,16 @@
+﻿@model IEnumerable<UserDTO>
+@{
+    ViewData["Title"] = "Home Page";
+}
+@foreach(var user in Model)
+{
+    <form asp-action="Login" asp-route-id="@user.Id" method="post">
+        <div class="m-5">
+            <button class="btn btn-primary">Login @user.FullName</button>
+        </div>
+    </form>
+}
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>

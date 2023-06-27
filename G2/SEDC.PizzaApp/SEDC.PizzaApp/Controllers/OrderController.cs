@@ -8,6 +8,7 @@ namespace SEDC.PizzaApp.Controllers
 {
     public class OrderController : Controller
     {
+        [HttpGet]
         public IActionResult Index()
         {
             List<Order> ordersFromDb = StaticDb.Orders;
@@ -52,6 +53,8 @@ namespace SEDC.PizzaApp.Controllers
 
             return View(orderViewModels);
         }
+
+        [HttpGet]
         public IActionResult Details(int? id) 
         {
             if (id == null)
@@ -110,14 +113,69 @@ namespace SEDC.PizzaApp.Controllers
         {
             OrderViewModel viewModel = new OrderViewModel();
 
+            ViewBag.Users = StaticDb.Users.Select(user 
+                => user.MapToUserSelectViewModel()).ToList();
+
             return View(viewModel);
         }
 
         [HttpPost]
-        public IActionResult CreteOrderPost(OrderViewModel viewModel) 
+        public IActionResult CreateOrder(OrderViewModel viewModel)
         {
+            var userDb = StaticDb.Users.FirstOrDefault(user => user.Id == viewModel.UserId);
+            if (userDb == null) return View("ResourceNotFound");
 
+            var pizzaDb = StaticDb.Pizzas.FirstOrDefault(pizza => pizza.Name == viewModel.PizzaName);
+            if (pizzaDb == null) return View("ResourceNotFound");
 
+            StaticDb.OderId++;          
+            Order order = viewModel.ToOrderDomainModel(userDb, pizzaDb);
+            order.Id = StaticDb.OderId;
+            StaticDb.Orders.Add(order);
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult EditOrder(int? id) 
+        {
+            if (id == null) 
+            {
+                return View("Error");
+            }
+
+            var orderDb = StaticDb.Orders.FirstOrDefault(order => order.Id == id);
+
+            if (orderDb == null)
+            {
+                return View("Error");
+            }
+
+            ViewBag.Users = StaticDb.Users.Select(user
+                => user.MapToUserSelectViewModel()).ToList();
+
+            var orderViewModel = orderDb.ToOrderViewModel();
+            return View(orderViewModel);
+        }
+
+        [HttpPost]
+        public IActionResult EditOrder(OrderViewModel orderViewModel) 
+        {
+            var userDb = StaticDb.Users.FirstOrDefault(user => user.Id == orderViewModel.UserId);
+            if (userDb == null) return View("ResourceNotFound");
+
+            var pizzaDb = StaticDb.Pizzas.FirstOrDefault(pizza => pizza.Name == orderViewModel.PizzaName);
+            if (pizzaDb == null) return View("ResourceNotFound");
+
+            var orderDb = StaticDb.Orders.FirstOrDefault(order => order.Id == orderViewModel.Id);
+            if (orderDb == null) return View("ResourceNotFound");
+
+            orderDb.PaymentMethod = orderViewModel.PaymentMethod;
+            orderDb.Delivered = orderViewModel.Delieverd;
+            orderDb.User = userDb;
+            orderDb.UserId = userDb.Id;
+            orderDb.Pizza = pizzaDb;
+            orderDb.PizzaId = pizzaDb.Id;
 
             return RedirectToAction("Index");
         }

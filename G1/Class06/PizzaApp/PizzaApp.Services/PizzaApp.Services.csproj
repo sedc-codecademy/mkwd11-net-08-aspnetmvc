@@ -6,4 +6,11 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PizzaApp.DataAccess\PizzaApp.DataAccess.csproj" />
+    <ProjectReference Include="..\PizzaApp.Domain\PizzaApp.Domain.csproj" />
+    <ProjectReference Include="..\PizzaApp.Mappers\PizzaApp.Mappers.csproj" />
+    <ProjectReference Include="..\PizzaApp.ViewModels\PizzaApp.ViewModels.csproj" />
+  </ItemGroup>
+
 </Project>
