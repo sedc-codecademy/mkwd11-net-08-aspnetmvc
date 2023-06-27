@@ -5,30 +5,17 @@ namespace SEDC.PizzaApp.Mappers
 {
     public static class OrderMapper
     {
-        //public static OrderViewModel ToOrderViewModel(Order order) 
-        //{
-        //    return new OrderViewModel()
-        //    {
-        //        PizzaName = order.Pizza.Name,
-        //        UserFullName = $"{order.User.FirstName} {order.User.LastName}",
-        //        PaymentMethod = order.PaymentMethod,
-        //        Price = order.Pizza.Price + 50,
-        //        Id = order.Id
-        //    };
-        //}
-
-        //public static OrderViewModel ToOrderViewModelExtension(this Order order)
-        //{
-        //    return new OrderViewModel()
-        //    {
-        //        PizzaName = order.Pizza.Name,
-        //        UserFullName = $"{order.User.FirstName} {order.User.LastName}",
-        //        PaymentMethod = order.PaymentMethod,
-        //        Price = order.Pizza.Price + 50,
-        //        Id = order.Id
-        //    };
-        //}
-
+        public static OrderViewModel ToOrderViewModel(this Order order)
+        {
+            return new OrderViewModel()
+            {
+                Id = order.Id,
+                Delieverd = order.Delivered,
+                PaymentMethod = order.PaymentMethod,
+                PizzaName = order.Pizza.Name,
+                UserId = order.User.Id
+            };
+        }
         public static OrderDetailsViewModel ToOrderDetailsViewModel(this Order order) 
         {
             return new OrderDetailsViewModel
@@ -41,7 +28,6 @@ namespace SEDC.PizzaApp.Mappers
                 PaymentMethod = order.PaymentMethod
             };
         }
-
         public static OrderListViewModel ToOrderListViewModel(this Order order) 
         {
             return new OrderListViewModel
@@ -49,6 +35,22 @@ namespace SEDC.PizzaApp.Mappers
                 Id = order.Id,
                 PizzaName = order.Pizza.Name,
                 UserFullName = $"{order.User.FirstName} {order.User.LastName}"
+            };
+        }
+
+        public static Order ToOrderDomainModel(this OrderViewModel orderViewModel, 
+                                               User user, 
+                                               Pizza pizza) 
+        {
+            return new Order
+            {
+                Id = orderViewModel.Id,
+                Delivered = orderViewModel.Delieverd,
+                PaymentMethod = orderViewModel.PaymentMethod,
+                User = user,
+                UserId = user.Id,
+                Pizza = pizza,
+                PizzaId = pizza.Id
             };
         }
     }
