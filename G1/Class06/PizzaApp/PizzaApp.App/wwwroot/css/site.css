@@ -16,3 +16,13 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.card {
+    flex-basis: 25%;
+}

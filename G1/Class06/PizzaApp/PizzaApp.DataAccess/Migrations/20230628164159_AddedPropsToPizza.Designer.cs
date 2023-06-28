@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PizzaApp.DataAccess.DataContext;
 
@@ -10,9 +11,11 @@ using PizzaApp.DataAccess.DataContext;
 namespace PizzaApp.DataAccess.Migrations
 {
     [DbContext(typeof(PizzaAppDbContext))]
-    partial class PizzaAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230628164159_AddedPropsToPizza")]
+    partial class AddedPropsToPizza
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -11,7 +11,42 @@ namespace PizzaApp.Mappers
             {
                 Id = pizza.Id,
                 Name = pizza.Name,
-                IsOnPromotion = pizza.IsOnPromotion
+                ImgUrl = pizza.ImageUrl,
+                Price = pizza.Price
+            };
+        }
+
+        public static PizzaDetailsViewModel ToPizzaDetailsViewModel(this Pizza pizza)
+        {
+            return new PizzaDetailsViewModel()
+            {
+                Price = pizza.Price,
+                ImageUrl = pizza.ImageUrl,
+                IsOnPromotion = pizza.IsOnPromotion,
+                Name = pizza.Name
+            };
+        }
+
+        public static Pizza ToPizza(this PizzaViewModel pizzaViewModel)
+        {
+            return new Pizza()
+            {
+                ImageUrl = pizzaViewModel.ImageUrl,
+                IsOnPromotion = pizzaViewModel.IsOnPromotion,
+                Name = pizzaViewModel.Name,
+                Price = pizzaViewModel.Price
+            };
+        }
+
+        public static PizzaViewModel ToPizzaViewModel(this Pizza pizzaDb)
+        {
+            return new PizzaViewModel()
+            {
+                Id = pizzaDb.Id,
+                ImageUrl = pizzaDb.ImageUrl,
+                IsOnPromotion = pizzaDb.IsOnPromotion,
+                Name = pizzaDb.Name,
+                Price = pizzaDb.Price
             };
         }
     }
