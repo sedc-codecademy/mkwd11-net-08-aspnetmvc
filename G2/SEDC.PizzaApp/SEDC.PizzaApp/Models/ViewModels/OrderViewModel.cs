@@ -11,7 +11,7 @@ namespace SEDC.PizzaApp.Models.ViewModels
         public string PizzaName { get; set; }
 
         [Display(Name = "User")]
-        public string UserId { get; set; }
+        public int UserId { get; set; }
 
         [Display(Name = "Is Order Delivered")]
         public bool Delieverd { get; set; }

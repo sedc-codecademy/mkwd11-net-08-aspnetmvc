@@ -1,0 +1,18 @@
+﻿@model SizeViewModel
+
+<form method="post" asp-action="Save" asp-controller="Size">
+    <input  type="hidden" asp-for="Id"/>
+    <div class="form-grop">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control"/>
+        @* This span is where the error message is displayed for the corresponding property *@
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-grop">
+        <label asp-for="Description"></label>
+        <input asp-for="Description" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <hr />
+    <input type="submit" class="btn btn-primary" value="Save" />
+</form>

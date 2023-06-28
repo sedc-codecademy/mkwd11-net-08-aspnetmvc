@@ -1,0 +1,11 @@
+﻿@model PizzaListViewModel
+
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Name</h5>
+        <p class="card-text">Not defined</p>
+    </div>
+    <br />
+    <a type="button" class="btn btn-primary" asp-action="Details" asp-route-identifier="@Model.Id">Details</a>
+</div>
