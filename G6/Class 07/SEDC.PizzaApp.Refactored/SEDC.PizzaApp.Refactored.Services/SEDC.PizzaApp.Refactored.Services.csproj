@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SEDC.PizzaApp.Refactored.DataAccess\SEDC.PizzaApp.Refactored.DataAccess.csproj" />
+    <ProjectReference Include="..\SEDC.PizzaApp.Refactored.Mappers\SEDC.PizzaApp.Refactored.Mappers.csproj" />
+    <ProjectReference Include="..\SEDC.PizzaApp.Refactored.ViewModels\SEDC.PizzaApp.Refactored.ViewModels.csproj" />
+  </ItemGroup>
+
+</Project>
