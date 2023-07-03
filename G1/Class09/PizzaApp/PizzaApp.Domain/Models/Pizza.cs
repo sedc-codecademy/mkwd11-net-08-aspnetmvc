@@ -1,6 +1,6 @@
-﻿namespace PizzaApp.ViewModels.PizzaViewModels
+﻿namespace PizzaApp.Domain.Models
 {
-    public class PizzaDetailsViewModel
+    public class Pizza : BaseEntity
     {
         public string Name { get; set; } = string.Empty;
 
@@ -10,6 +10,6 @@
 
         public string ImageUrl { get; set; } = string.Empty;
 
-        public int NumberOfTimesOrdered { get; set; }
+        public List<PizzaOrder> PizzaOrders { get; set; } = new List<PizzaOrder>();
     }
 }
