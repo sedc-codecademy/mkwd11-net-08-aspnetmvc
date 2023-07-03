@@ -12,7 +12,7 @@ namespace Pazar4.Web.Configuration
             services.AddScoped<ISellerService, SellerService>();
             services.AddSingleton<IPasswordHasher, DummyPasswordHasher>();
             services.AddSingleton<IConfirmationCodeProvider, SimpleConfirmationCodeProvider>();
-            services.AddSingleton<IEmailSender, GoogleMailSender>();
+            services.AddTransient<IEmailSender, GoogleMailSender>();
             return services;
         }
     }

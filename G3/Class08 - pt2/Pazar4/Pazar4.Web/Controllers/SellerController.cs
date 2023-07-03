@@ -1,7 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Pazar4.BLL.Hashing;
 using Pazar4.BLL.Models;
+using Pazar4.BLL.Providers;
 using Pazar4.BLL.Services;
+using Pazar4.BLL.Services.External;
+using Pazar4.StaticDb.Repository;
 
 namespace Pazar4.Web.Controllers
 {
