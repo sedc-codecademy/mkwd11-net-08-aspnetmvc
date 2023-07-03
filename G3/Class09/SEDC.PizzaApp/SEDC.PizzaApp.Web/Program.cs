@@ -14,9 +14,9 @@ builder.Services.AddDistributedMemoryCache();
 
 
 builder.Services.AddScoped<IOrderService, OrderService>(); // new O
-builder.Services.AddScoped<IRepository<Order>, OrderRepository>();
-builder.Services.AddScoped<IRepository<User>, UserRepository>();
-builder.Services.AddScoped<IRepository<Pizza>, PizzaRepository>();
+builder.Services.AddScoped<IRepository<Order>, OrderEFRepository>();
+builder.Services.AddScoped<IRepository<User>, UserEFRepository>();
+builder.Services.AddScoped<IRepository<Pizza>, PizzaEFRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IPizzaService, PizzaService>();
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
