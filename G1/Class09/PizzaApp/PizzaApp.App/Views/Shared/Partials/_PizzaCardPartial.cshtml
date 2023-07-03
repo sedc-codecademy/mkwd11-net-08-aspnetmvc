@@ -1,0 +1,16 @@
+﻿@model PizzaListViewModel
+
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src=@Model.ImgUrl alt="Card image cap" height="250px">
+    <div class="card-body">
+        <h4 class="card-title">@Model.Name</h4>
+        <br />
+        <p class="card-text" style="font-weight: 700;">@Model.Price</p>
+    </div>
+    <br />
+    <a type="button" class="btn btn-primary" asp-action="Details" asp-route-id="@Model.Id">Details</a>
+    <br />
+    <a class="btn btn-danger" asp-area="" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
+        <br />
+    <a class="btn btn-primary" asp-area="" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+</div>
