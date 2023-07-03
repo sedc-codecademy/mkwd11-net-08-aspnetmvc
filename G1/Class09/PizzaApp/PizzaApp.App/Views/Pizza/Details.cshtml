@@ -1,0 +1,18 @@
+﻿@model PizzaDetailsViewModel
+
+<h1>@Model.Name</h1>
+
+<img src="@Model.ImageUrl" style="width: 500px;" />
+<h3>Price: @Model.Price denars.</h3>
+<h3>Number of times ordered: @Model.NumberOfTimesOrdered times.</h3>
+
+@if (@Model.IsOnPromotion)
+{
+    <h3 class="text-success">ON PROMOTION</h3>
+}
+else
+{
+    <h3 class="text-danger">NOT ON PROMOTION</h3>
+}
+
+<br />
