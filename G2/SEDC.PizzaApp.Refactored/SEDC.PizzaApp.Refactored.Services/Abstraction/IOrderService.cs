@@ -10,5 +10,6 @@ namespace SEDC.PizzaApp.Refactored.Services.Abstraction
     public interface IOrderService
     {
         List<OrderListViewModel> GetAllOrders();
+        void CreateOrder(OrderViewModel orderViewModel);
     }
 }

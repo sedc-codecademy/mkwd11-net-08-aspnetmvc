@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SEDC.PizzaApp.Refactored.Domain\SEDC.PizzaApp.Refactored.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
