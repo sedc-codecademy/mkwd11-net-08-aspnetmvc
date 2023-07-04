@@ -1,0 +1,24 @@
+﻿@using SEDC.PizzaApp.Refactored.Domain.Enums;
+@model AddPizzaViewModel
+
+<h2>Add pizza to order</h2>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddPizzaPost" method="post">
+            <input type="hidden" asp-for="OrderId"/>
+            <div class="form-group">
+                <label asp-for="PizzaId" class="control-label"></label>
+                <select asp-for="PizzaId" class="form-control" asp-items="@(new SelectList(ViewBag.Pizzas, "Id", "Name"))"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="PizzaSize" class="control-label"></label>
+                <select class="form-control" asp-for="PizzaSize" asp-items="Html.GetEnumSelectList<PizzaSize>()"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="NumberOfPizzas" class="control-label"></label>
+                <input type="number" asp-for="NumberOfPizzas" />
+            </div>
+            <button type="submit" class="btn btn-default">Add</button>
+        </form>
+    </div>
+</div>
