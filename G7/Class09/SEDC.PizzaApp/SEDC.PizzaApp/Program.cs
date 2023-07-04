@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+using SEDC.PizzaApp.DataAccess;
 using SEDC.PizzaApp.DataAccess.Repositories;
 using SEDC.PizzaApp.DataAccess.Repositories.Interfaces;
 using SEDC.PizzaApp.DomainModels;
@@ -20,6 +22,9 @@ namespace SEDC.PizzaApp
 
             //builder.Services.AddSingleton<ISizeService, SizeService>();
             //builder.Services.AddScoped<ISizeService, SizeService>();
+
+            builder.Services.AddDbContext<PizzaAppDbContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             var app = builder.Build();
 
