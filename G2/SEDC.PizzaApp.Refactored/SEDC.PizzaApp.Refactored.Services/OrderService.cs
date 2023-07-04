@@ -7,16 +7,19 @@ using SEDC.PizzaApp.Refactored.DataAccess.Repositories.Implementation.StaticDbIm
 using SEDC.PizzaApp.Refactored.Domain.Models;
 using SEDC.PizzaApp.Refactored.ViewModels.OrderViewModels;
 using SEDC.PizzaApp.Refactored.Mappers.Extensions;
+using SEDC.PizzaApp.Refactored.DataAccess.Repositories;
+using SEDC.PizzaApp.Refactored.DataAccess.Repositories.Implementation.EntityFrameworkImplementation;
+using SEDC.PizzaApp.Refactored.Services.Abstraction;
 
 namespace SEDC.PizzaApp.Refactored.Services
 {
-    public class OrderService
+    public class OrderService : IOrderService
     {
-        private OrderRepository _orderRepository;
+        private IRepository<Order> _orderRepository;
 
-        public OrderService()
+        public OrderService(IRepository<Order> orderRepository)
         {
-            _orderRepository = new OrderRepository();
+            _orderRepository = orderRepository;
         }
 
         public List<OrderListViewModel> GetAllOrders() 

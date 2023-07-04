@@ -1,1 +1,23 @@
 ﻿@model List<OrderListViewModel>
+
+@*<div class="text-center">
+    <a asp-action="Create" asp-controller="Order" class="btn btn-outline-success">Create order</a>
+    <h2 class="display-4">List of orders:</h2>
+</div>*@
+
+<br />
+
+<div class="row">
+    @foreach (var order in @Model)
+    {
+        <div class="card-body">
+            <h5 class="card-title">User: @order.UserFullName</h5>
+            <ol>
+                @foreach (var pizzaName in order.PizzaNames)
+                {
+                    <li>@pizzaName</li>
+                }
+            </ol>
+        </div>
+    }
+</div>

@@ -10,7 +10,7 @@ namespace SEDC.PizzaApp.Refactored.ViewModels.OrderViewModels
     {
         public int Id { get; set; }
         public string UserFullName { get; set; }
-        public bool Delieverd { get; set; }
+        public bool Delivered { get; set; }
         public List<string> PizzaNames { get; set; }
     }
 }

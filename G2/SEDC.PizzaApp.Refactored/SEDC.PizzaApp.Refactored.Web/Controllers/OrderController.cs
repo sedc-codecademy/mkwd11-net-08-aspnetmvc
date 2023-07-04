@@ -1,16 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SEDC.PizzaApp.Refactored.Services;
+using SEDC.PizzaApp.Refactored.Services.Abstraction;
 using SEDC.PizzaApp.Refactored.ViewModels.OrderViewModels;
 
 namespace SEDC.PizzaApp.Refactored.Web.Controllers
 {
     public class OrderController : Controller
     {
-        private OrderService _orderService;
+        private IOrderService _orderService;
 
-        public OrderController()
+        public OrderController(IOrderService orderService)
         {
-            _orderService = new OrderService();
+            _orderService = orderService;
         }
 
         public IActionResult Index()

@@ -15,7 +15,7 @@ namespace SEDC.PizzaApp.Refactored.Mappers.Extensions
             return new OrderListViewModel
             {
                 Id = order.Id,
-                Delieverd = order.Delivered,
+                Delivered = order.Delivered,
                 UserFullName = $"{order.User.FirstName} {order.User.LastName}",
                 PizzaNames = order.PizzaOrders.Select(po => po.Pizza.Name).ToList()
             };
