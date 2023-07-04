@@ -1,0 +1,33 @@
+﻿@model List<SizeViewModel>
+@{
+    //Set the name that appears in the tab on the browser
+    // This is configurated in the _Layout <title>
+    ViewData["Title"] = "Sizes";
+}
+
+<h1>Sizes</h1>
+<a asp-action="CreateEditSize" asp-controller="Size" class="btn btn-primary" >Add new</a>
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+       @for(var i = 0; i < Model.Count; i++) {
+           <tr>
+               <th scope="row">@(i + 1)</th>
+               <th>@Model[i].Name</th>
+               <th>@Model[i].Description</th>
+               <td>
+                   <a asp-action="Details" asp-route-id="@Model[i].Id" class="btn btn-primary">Details</a>
+                   <a asp-action="CreateEditSize" asp-route-id="@Model[i].Id" class="btn btn-warning">Edit</a>
+                   <a asp-action="Remove" asp-route-id="@Model[i].Id" class="btn btn-danger">Remove</a>
+               </td>
+           </tr>
+       }
+    </tbody>
+</table>
