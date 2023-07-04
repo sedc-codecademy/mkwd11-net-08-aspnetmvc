@@ -1,0 +1,25 @@
+﻿@using SEDC.PizzaApp.Refactored.Domain.Enums;
+@model CreateOrderViewModel
+
+<h2>Create Order</h2>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateOrderPost" method="post">
+            <div class="form-group">
+                <label asp-for="PaymentMethod" class="control-label"></label>
+                @*creates select list with options where value is the value of the members and text is the name of the member of the enum*@
+                <select class="form-control" asp-for="PaymentMethod" asp-items="Html.GetEnumSelectList<PaymentMethod>()"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsDelivered" class="control-label"></label>
+                <input type="checkbox" asp-for="IsDelivered" />
+            </div>
+            <div class="form-group">
+                <label asp-for="UserId" class="control-label"></label>
+                @*creates select list with options where value is Id and text is Fullname from the list of UserDDViewModel*@
+                <select asp-for="UserId" class="form-control" asp-items="@(new SelectList(ViewBag.Users, "Id", "FullName"))"></select>
+            </div>
+            <button type="submit" class="btn btn-default">Create</button>
+        </form>
+    </div>
+</div>
