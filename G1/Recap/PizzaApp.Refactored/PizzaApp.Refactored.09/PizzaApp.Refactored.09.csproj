@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>PizzaApp.Refactored._09</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PizzaApp.Refactored.09.Helpers\PizzaApp.Refactored.09.Helpers.csproj" />
+    <ProjectReference Include="..\PizzaApp.Refactored.09.Services\PizzaApp.Refactored.09.Services.csproj" />
+    <ProjectReference Include="..\PizzaApp.Refactored.09.ViewModels\PizzaApp.Refactored.09.ViewModels.csproj" />
+  </ItemGroup>
+
+</Project>
