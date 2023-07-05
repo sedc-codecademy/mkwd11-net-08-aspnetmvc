@@ -1,7 +1,16 @@
+using SEDC.PizzaApp.Refactored.Helpers;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Registering Dependeciy Injection without a helper
+//builder.Services.AddTransient<IOrderService, OrderService>();
+//builder.Services.AddTransient<IRepository<Order>, OrderRepository>();
+
+builder.Services.InjectServices();
+builder.Services.InjectRepositories();
 
 var app = builder.Build();
 

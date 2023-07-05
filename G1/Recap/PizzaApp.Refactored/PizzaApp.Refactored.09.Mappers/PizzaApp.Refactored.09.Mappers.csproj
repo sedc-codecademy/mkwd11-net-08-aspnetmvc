@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>PizzaApp.Refactored._09.Mappers</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PizzaApp.Refactored.09.Domain\PizzaApp.Refactored.09.Domain.csproj" />
+    <ProjectReference Include="..\PizzaApp.Refactored.09.ViewModels\PizzaApp.Refactored.09.ViewModels.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -3,15 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEDC.PizzaApp.Refactored.DataAccess", "SEDC.PizzaApp.Refactored.DataAccess\SEDC.PizzaApp.Refactored.DataAccess.csproj", "{50E36529-E56D-4634-8D87-D427B4600FC1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SEDC.PizzaApp.Refactored.DataAccess", "SEDC.PizzaApp.Refactored.DataAccess\SEDC.PizzaApp.Refactored.DataAccess.csproj", "{50E36529-E56D-4634-8D87-D427B4600FC1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEDC.PizzaApp.Refactored.Domain", "SEDC.PizzaApp.Refactored.Domain\SEDC.PizzaApp.Refactored.Domain.csproj", "{2BAD7F5B-9416-43DC-A796-0118C83E15D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SEDC.PizzaApp.Refactored.Domain", "SEDC.PizzaApp.Refactored.Domain\SEDC.PizzaApp.Refactored.Domain.csproj", "{2BAD7F5B-9416-43DC-A796-0118C83E15D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEDC.PizzaApp.Refactored.Services", "SEDC.PizzaApp.Refactored.Services\SEDC.PizzaApp.Refactored.Services.csproj", "{44B5F26D-4FD7-4DB9-BC22-5E7F37712E00}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SEDC.PizzaApp.Refactored.Services", "SEDC.PizzaApp.Refactored.Services\SEDC.PizzaApp.Refactored.Services.csproj", "{44B5F26D-4FD7-4DB9-BC22-5E7F37712E00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEDC.PizzaApp.Refactored.ViewModels", "SEDC.PizzaApp.Refactored.ViewModels\SEDC.PizzaApp.Refactored.ViewModels.csproj", "{C4C2D42F-31BC-4BB6-AECF-E7DB7BF23463}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SEDC.PizzaApp.Refactored.ViewModels", "SEDC.PizzaApp.Refactored.ViewModels\SEDC.PizzaApp.Refactored.ViewModels.csproj", "{C4C2D42F-31BC-4BB6-AECF-E7DB7BF23463}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEDC.PizzaApp.Refactored.Web", "SEDC.PizzaApp.Refactored.Web\SEDC.PizzaApp.Refactored.Web.csproj", "{1382BE87-B520-4F93-B2EA-BFD803DE3A95}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SEDC.PizzaApp.Refactored.Web", "SEDC.PizzaApp.Refactored.Web\SEDC.PizzaApp.Refactored.Web.csproj", "{1382BE87-B520-4F93-B2EA-BFD803DE3A95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEDC.PizzaApp.Refactored.Mappers", "SEDC.PizzaApp.Refactored.Mappers\SEDC.PizzaApp.Refactored.Mappers.csproj", "{B96CD45D-FEBB-49FE-A72B-61F7981DEFC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEDC.PizzaApp.Refactored.Helpers", "SEDC.PizzaApp.Refactored.Helpers\SEDC.PizzaApp.Refactored.Helpers.csproj", "{8F56D895-180B-4A5B-88EA-5580EAC0D2C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,14 @@ Global
 		{1382BE87-B520-4F93-B2EA-BFD803DE3A95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1382BE87-B520-4F93-B2EA-BFD803DE3A95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1382BE87-B520-4F93-B2EA-BFD803DE3A95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B96CD45D-FEBB-49FE-A72B-61F7981DEFC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B96CD45D-FEBB-49FE-A72B-61F7981DEFC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B96CD45D-FEBB-49FE-A72B-61F7981DEFC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B96CD45D-FEBB-49FE-A72B-61F7981DEFC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F56D895-180B-4A5B-88EA-5580EAC0D2C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F56D895-180B-4A5B-88EA-5580EAC0D2C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F56D895-180B-4A5B-88EA-5580EAC0D2C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F56D895-180B-4A5B-88EA-5580EAC0D2C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

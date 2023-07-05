@@ -9,5 +9,6 @@ namespace SEDC.PizzaApp.Refactored.Domain.Models
         public string Location { get; set; }
         public List<PizzaOrder> PizzaOrders { get; set; }
         public User User { get; set; }
+        public int UserId { get; set; }
     }
 }
