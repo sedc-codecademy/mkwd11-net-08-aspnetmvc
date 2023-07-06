@@ -14,6 +14,7 @@ namespace SEDC.PizzaApp.Refactored.Helpers
         {
             services.AddTransient<IOrderService, OrderService>();
             services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IPizzaService, PizzaService>();
         }
 
         public static void InjectRepositories(this IServiceCollection services)
