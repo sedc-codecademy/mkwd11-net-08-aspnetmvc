@@ -45,7 +45,12 @@ namespace SEDC.PizzaApp.Services
             if (model.Id == 0)
             {
                 //Use the Custom Mapper for ViewModel -> DomainModel
-                var size = model.ToDomainModel(CommonHelper.GetRandomId());
+                var size = model.ToDomainModel();
+                //var size = new Size()
+                //{
+                //    Name = model.Name,
+                //    Description = model.Description
+                //};
 
                 _sizeRepository.Insert(size);
 
@@ -69,6 +74,29 @@ namespace SEDC.PizzaApp.Services
         public void Remove(int id)
         {
             _sizeRepository.DeleteById(id);
+        }
+
+        public List<SizeViewModel> FilteredSizes(string filter)
+        {
+            filter = filter == null ? string.Empty : filter;
+
+            //Select * From Sizes => 4
+            //Memory: Where Name Like '' OR Description Like ''
+            //Memory: Transform the object to viewModel
+            //var filteredSizes = _sizeRepository.GetAll()
+            //    .Where(x => x.Name.ToLower().Contains(filter)
+            //                || x.Description.ToLower().Contains(filter))
+            //    .Select(x => x.ToViewModel())
+            //    .ToList();
+
+            //Select Id as Id, Name as Name, Description as Description From Sizes Where Name Like '' OR Description Like '' => Objects that met the filtering
+            var filteredSizes = _sizeRepository.Query()
+                .Where(x => x.Name.ToLower().Contains(filter)
+                            || x.Description.ToLower().Contains(filter))
+                .Select(x => x.ToViewModel())
+                .ToList();
+
+            return filteredSizes;
         }
     }
 }

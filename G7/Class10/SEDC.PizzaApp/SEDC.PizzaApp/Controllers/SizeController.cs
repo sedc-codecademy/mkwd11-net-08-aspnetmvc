@@ -28,6 +28,15 @@ namespace SEDC.PizzaApp.Controllers
 
             var sizes = _sizeService.GetAll();
 
+            //Just for testing accessing the MenuItem to grab everthing linked with them
+
+            return View(sizes);
+        }
+
+        public IActionResult Filtered(string id)
+        {
+            var sizes = _sizeService.FilteredSizes(id);
+
             return View(sizes);
         }
 

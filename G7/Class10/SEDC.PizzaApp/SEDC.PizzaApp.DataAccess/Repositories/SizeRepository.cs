@@ -62,5 +62,10 @@ namespace SEDC.PizzaApp.DataAccess.Repositories
 
             PizzaDb.Sizes.Remove(existingSize);
         }
+
+        public IQueryable<Size> Query()
+        {
+            return PizzaDb.Sizes.AsQueryable();
+        }
     }
 }

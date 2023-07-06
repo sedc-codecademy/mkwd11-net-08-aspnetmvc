@@ -8,5 +8,6 @@ namespace SEDC.PizzaApp.Services.Abstraction
         SizeViewModel GetById(int id);
         void Save(SizeViewModel model);
         void Remove(int id);
+        List<SizeViewModel> FilteredSizes(string filter);
     }
 }

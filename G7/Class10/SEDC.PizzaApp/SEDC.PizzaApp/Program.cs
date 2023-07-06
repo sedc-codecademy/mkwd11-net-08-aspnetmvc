@@ -18,7 +18,10 @@ namespace SEDC.PizzaApp
             builder.Services.AddControllersWithViews();
             builder.Services.AddTransient<ISizeService, SizeService>();
             builder.Services.AddTransient<ISmsService, TMobileSmsService>();
-            builder.Services.AddTransient<IRepository<Size>, SizeRepository>();
+            //builder.Services.AddTransient<IRepository<Size>, SizeRepository>();
+            builder.Services.AddTransient<IRepository<Size>, SizeEfRepository>();
+            builder.Services.AddTransient<IRepository<MenuItem>, MenuItemRepository>();
+            builder.Services.AddTransient<IMenuItemService, MenuItemService>();
 
             //builder.Services.AddSingleton<ISizeService, SizeService>();
             //builder.Services.AddScoped<ISizeService, SizeService>();

@@ -11,5 +11,6 @@ namespace SEDC.PizzaApp.DataAccess.Repositories.Interfaces
         void Update(T entity);
         void Delete(T entity);
         void DeleteById(int id);
+        IQueryable<T> Query();
     }
 }
