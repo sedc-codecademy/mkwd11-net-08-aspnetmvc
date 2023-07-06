@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SEDC.PizzaApp.Refactored.Services.Abstraction;
+using SEDC.PizzaApp.Refactored.ViewModels.HomeViewModels;
 using SEDC.PizzaApp.Refactored.Web.Models;
 using System.Diagnostics;
 
@@ -6,16 +8,23 @@ namespace SEDC.PizzaApp.Refactored.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private IPizzaService _pizzaService;
+        private IOrderService _orderService;
 
-        public HomeController(ILogger<HomeController> logger)
+
+        public HomeController(IPizzaService pizzaService, 
+                              IOrderService orderService)
         {
-            _logger = logger;
+            _pizzaService = pizzaService;
+            _orderService = orderService;
         }
 
         public IActionResult Index()
         {
-            return View();
+            HomeIndexViewModel homeIndexViewModel = new HomeIndexViewModel();
+            homeIndexViewModel.PizzaOnPromotion = _pizzaService.GetPizzaOnPromotion();
+            homeIndexViewModel.OrderCount = _orderService.GetAllOrders().Count;
+            return View(homeIndexViewModel);
         }
 
         public IActionResult Privacy()

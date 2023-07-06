@@ -2,7 +2,10 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+@model HomeIndexViewModel
+
+<div class="jumbotron">
+    <h1>Welcome to our pizza app!</h1>
+    <h3>Today on promotion: @Model.PizzaOnPromotion</h3>
+    <h4>We are popular! We have already had @Model.OrderCount orders! </h4>
 </div>

@@ -1,12 +1,6 @@
 ﻿using SEDC.PizzaApp.Refactored.Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace SEDC.PizzaApp.Refactored.DataAccess.Repositories
+namespace SEDC.PizzaApp.Refactored.DataAccess.Repositories.Abstraction
 {
     public interface IRepository<T> where T : BaseEntity
     {
