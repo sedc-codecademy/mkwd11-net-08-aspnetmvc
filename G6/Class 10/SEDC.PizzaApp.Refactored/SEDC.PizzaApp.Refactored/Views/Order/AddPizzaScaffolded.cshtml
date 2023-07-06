@@ -1,0 +1,48 @@
+﻿@model SEDC.PizzaApp.Refactored.ViewModels.Orders.AddPizzaViewModel
+
+@{
+    ViewData["Title"] = "AddPizzaScaffolded";
+}
+
+<h1>AddPizzaScaffolded</h1>
+
+<h4>AddPizzaViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddPizzaScaffolded">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PizzaId" class="control-label"></label>
+                <input asp-for="PizzaId" class="form-control" />
+                <span asp-validation-for="PizzaId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PizzaSize" class="control-label"></label>
+                <input asp-for="PizzaSize" class="form-control" />
+                <span asp-validation-for="PizzaSize" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NumberOfPizzas" class="control-label"></label>
+                <input asp-for="NumberOfPizzas" class="form-control" />
+                <span asp-validation-for="NumberOfPizzas" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OrderId" class="control-label"></label>
+                <input asp-for="OrderId" class="form-control" />
+                <span asp-validation-for="OrderId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

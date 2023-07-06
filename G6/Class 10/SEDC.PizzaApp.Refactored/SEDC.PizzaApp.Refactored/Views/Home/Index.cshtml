@@ -1,0 +1,20 @@
+﻿@model HomeIndexViewModel
+
+<h2>Welcome to the most popular pizza app!</h2>
+
+<h3>We have already served @Model.NumberOfOrdersInTheApp orders.</h3>
+
+@if(Model.PizzasOnPromotion == null || Model.PizzasOnPromotion.Count == 0)
+{
+    <h3>Sorry, today we don't have anything on promotion.</h3>
+}
+else
+{
+    <h3>Today, on promotion:</h3>
+    <ul>
+        @foreach(string pizzaName in Model.PizzasOnPromotion)
+        {
+            <li>@pizzaName</li>
+        }
+    </ul>
+}
