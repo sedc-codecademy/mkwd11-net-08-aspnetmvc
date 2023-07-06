@@ -1,3 +1,5 @@
+//isntall package Microsoft.EntityFrameworkCore.Design 
+
 using SEDC.PizzaApp.Refactored.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,8 +11,11 @@ builder.Services.AddControllersWithViews();
 //builder.Services.AddTransient<IOrderService, OrderService>();
 //builder.Services.AddTransient<IRepository<Order>, OrderRepository>();
 
+var connectionString = builder.Configuration.GetConnectionString("PizzaAppCS");
+
 builder.Services.InjectServices();
 builder.Services.InjectRepositories();
+builder.Services.InjectDbContext(connectionString);
 
 var app = builder.Build();
 
