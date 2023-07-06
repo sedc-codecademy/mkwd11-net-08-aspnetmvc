@@ -1,0 +1,21 @@
+﻿@model OrderItemViewModel
+
+
+<form asp-action="Save" method="post">
+    <input type="hidden" asp-for="OrderId" />
+
+    <div class="form-group">
+        <label asp-for="MenuItem.Id"></label>
+        <select asp-for="MenuItem.Id" asp-items="@(IEnumerable<SelectListItem>) ViewBag.MenuItems" class="form-control">
+            <option>-- Please select pizza --</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Quantity"></label>
+        <input asp-for="Quantity" class="form-control" />
+    </div>
+
+    <hr />
+    <input type="submit" class="btn btn-primary" value="Save" />
+</form>

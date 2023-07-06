@@ -1,0 +1,28 @@
+﻿@model List<PizzaViewModel>
+
+<a asp-action="CreateEditPizza" asp-controller="Pizza" class="btn btn-primary">Add new</a>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+        @for (var i = 0; i < Model.Count; i++)
+        {            
+                <tr>
+                  <th scope="row">@(i + 1)</th>
+                  <td>@Model[i].Name</td>
+                  <td>@Model[i].Description</td>
+                  <td>
+                      <a asp-action="Details" asp-route-id="@Model[i].Id" class="btn btn-primary">Details</a>
+                      <a asp-action="CreateEditPizza" asp-controller="Pizza" asp-route-id="@Model[i].Id" class="btn btn-warning">Edit</a>
+                      <a asp-action="Delete" asp-controller="Pizza" asp-route-id="@Model[i].Id" class="btn btn-danger">Delete</a>
+                  </td>
+                </tr>
+        }
+      </tbody>
+    </table>

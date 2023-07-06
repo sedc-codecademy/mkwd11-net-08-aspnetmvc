@@ -1,0 +1,45 @@
+﻿@using System.Globalization;
+@model List<OrderViewModel>
+
+<a asp-action="CreateOrder" class="btn btn-primary">Add new</a>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Address</th>
+      <th scope="col">PhoneNumber</th>
+      <th scope="col">Items</th>
+      <th scope="col">Note</th>
+      <th scope="col">Total Price</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+        @for (var i = 0; i < Model.Count; i++)
+        {            
+                <tr>
+                  <th scope="row">@(i + 1)</th>
+                  <td>@Model[i].Name</td>
+                  <td>@Model[i].Address</td>
+                  <td>@Model[i].PhoneNumber</td>
+                  <td>
+                      <ul>
+                        @foreach(var item in Model[i].Items)
+                        {
+                            <li>
+                                @item.MenuItem.ToString() x @item.Quantity
+                            </li>
+                        }
+                    </ul>
+                  </td>
+                  <td>@Model[i].Note</td>
+                  <td>@Model[i].TotalPrice.ToString("C", CultureInfo.CreateSpecificCulture("mk-MK"))</td>
+                  <td>
+                      <a asp-action="Details" asp-route-id="@Model[i].Id" class="btn btn-primary">Details</a>
+                      <a asp-action="Delete" asp-route-id="@Model[i].Id" class="btn btn-danger">Delete</a>
+                  </td>
+                </tr>
+        }
+      </tbody>
+    </table>

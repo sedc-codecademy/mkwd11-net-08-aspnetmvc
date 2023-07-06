@@ -1,0 +1,26 @@
+﻿@model MenuItemCreateEditViewModel
+
+<form asp-action="Save" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label asp-for="SelectedPizzaId"></label>
+        <select asp-for="SelectedPizzaId" asp-items="@(IEnumerable<SelectListItem>) ViewBag.Pizzas" class="form-control">
+            <option>-- Please select pizza --</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="SelectedSizeId"></label>
+        <select asp-for="SelectedSizeId" asp-items="@(IEnumerable<SelectListItem>) ViewBag.Sizes" class="form-control">
+            <option>-- Please select size --</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Price"></label>
+        <input asp-for="Price" class="form-control" />
+    </div>
+    <hr />
+    <input type="submit" class="btn btn-primary" value="Save" />
+</form>

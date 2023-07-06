@@ -1,0 +1,30 @@
+﻿@using System.Globalization;
+@model List<MenuItemViewModel>
+
+<a asp-action="CreateEditMenuItem" class="btn btn-primary">Add new</a>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name (Description)</th>
+      <th scope="col">Size (Description)</th>
+      <th scope="col">Price</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+        @for (var i = 0; i < Model.Count; i++)
+        {            
+            <tr>
+              <th scope="row">@(i + 1)</th>
+              <td>@Model[i].Pizza.Name (@Model[i].Pizza.Description)</td>
+              <td>@Model[i].Size.Name (@Model[i].Size.Description)</td>
+              <td>@Model[i].Price.ToString("C", CultureInfo.CreateSpecificCulture("mk-MK"))</td>
+              <td>
+                <a asp-action="CreateEditMenuItem" class="btn btn-warning" asp-route-id="@Model[i].Id">Edit</a>
+                <a asp-action="Delete" class="btn btn-danger" asp-route-id="@Model[i].Id">Delete</a>
+              </td>
+            </tr>
+        }
+      </tbody>
+    </table>

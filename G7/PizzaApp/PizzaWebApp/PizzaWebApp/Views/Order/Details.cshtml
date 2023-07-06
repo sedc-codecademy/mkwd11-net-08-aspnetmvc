@@ -1,0 +1,36 @@
+﻿@using System.Globalization;
+@model OrderViewModel
+
+<div>
+    <span class="col-6">
+        <h3>@Model.Address</h3>
+        <h6>@Model.PhoneNumber</h6>
+        <h6>@Model.Note</h6>
+        <h4>@Model.TotalPrice.ToString("C", CultureInfo.CreateSpecificCulture("mk-MK"))</h4>
+    </span>
+</div>
+
+<a asp-action="CreateOrderItem" asp-controller="OrderItem" asp-route-id="@Model.Id" class="btn btn-primary">Add new pizza</a>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Pizza</th>
+      <th scope="col">Quantity</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+        @for (var i = 0; i < Model.Items.Count; i++)
+        {            
+                <tr>
+                  <th scope="row">@(i + 1)</th>
+                  <td>@Model.Items[i].MenuItem.ToString()</td>
+                  <td>@Model.Items[i].Quantity</td>
+                  <td>
+                      <a asp-action="Delete" asp-controller="OrderItem" asp-route-id="@Model.Items[i].Id" class="btn btn-danger">Delete</a>
+                  </td>
+                </tr>
+        }
+      </tbody>
+    </table>
