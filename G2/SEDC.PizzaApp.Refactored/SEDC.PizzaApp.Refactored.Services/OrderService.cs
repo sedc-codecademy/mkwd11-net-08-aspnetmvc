@@ -10,13 +10,15 @@ namespace SEDC.PizzaApp.Refactored.Services
     {
         private IRepository<Order> _orderRepository;
         private IRepository<User> _userRepository;
+        private IPizzaRepository _pizzaRepository;
 
         public OrderService(IRepository<Order> orderRepository,
-                            IRepository<User> userRepository)
+                            IRepository<User> userRepository,
+                            IPizzaRepository pizzaRepository)
         {
             _orderRepository = orderRepository;
             _userRepository = userRepository;
-
+            _pizzaRepository = pizzaRepository;
         }
 
         public List<OrderListViewModel> GetAllOrders()
@@ -94,6 +96,34 @@ namespace SEDC.PizzaApp.Refactored.Services
                 throw new Exception($"The order with id {id} was not found!");
             }
             return orderDb.MapToOrderDetailsViewModel();
+        }
+
+        public void AddPizzaToOrder(PizzaOrderViewModel pizzaOrderViewModel) 
+        {
+            var pizzaDb = _pizzaRepository.GetById(pizzaOrderViewModel.PizzaId);
+            if (pizzaDb == null) 
+            {
+                throw new Exception($"Pizza with id {pizzaOrderViewModel.PizzaId} was not found");
+            }
+
+            var orderDb = _orderRepository.GetById(pizzaOrderViewModel.OrderId);
+            if (orderDb == null)
+            {
+                throw new Exception($"Order with id {pizzaOrderViewModel.OrderId} was not found");
+            }
+
+            var pizzaOrder = new PizzaOrder
+            {
+                Pizza = pizzaDb,
+                PizzaId = pizzaDb.Id,
+                Order = orderDb,
+                OrderId = orderDb.Id,
+                PizzaSize = pizzaOrderViewModel.PizzaSize
+            };
+
+            orderDb.PizzaOrders.Add(pizzaOrder);
+
+            _orderRepository.Update(orderDb);
         }
     }
 }

@@ -21,6 +21,7 @@ namespace SEDC.PizzaApp.Refactored.Helpers
         {
             services.AddTransient<IRepository<Order>, OrderRepository>();
             services.AddTransient<IRepository<User>, UserRepository>();
+            services.AddTransient<IPizzaRepository, PizzaRepository>();
         }
     }
 }

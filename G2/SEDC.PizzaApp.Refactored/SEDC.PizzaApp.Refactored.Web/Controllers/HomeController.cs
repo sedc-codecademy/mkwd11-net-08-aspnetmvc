@@ -22,7 +22,7 @@ namespace SEDC.PizzaApp.Refactored.Web.Controllers
         public IActionResult Index()
         {
             HomeIndexViewModel homeIndexViewModel = new HomeIndexViewModel();
-            homeIndexViewModel.PizzaOnPromotion = _pizzaService.GetPizzaOnPromotion();
+            homeIndexViewModel.PizzaOnPromotion = _pizzaService.GetPizzaNameOnPromotion();
             homeIndexViewModel.OrderCount = _orderService.GetAllOrders().Count;
             return View(homeIndexViewModel);
         }
