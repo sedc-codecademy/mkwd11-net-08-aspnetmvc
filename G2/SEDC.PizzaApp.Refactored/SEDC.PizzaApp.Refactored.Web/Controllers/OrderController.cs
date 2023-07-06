@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SEDC.PizzaApp.Refactored.Services;
 using SEDC.PizzaApp.Refactored.Services.Abstraction;
 using SEDC.PizzaApp.Refactored.ViewModels.OrderViewModels;
 
@@ -9,12 +8,15 @@ namespace SEDC.PizzaApp.Refactored.Web.Controllers
     {
         private IOrderService _orderService;
         private IUserService _userService;
+        private IPizzaService _pizzaService;
 
-        public OrderController(IOrderService orderService, 
-                               IUserService userService)
+        public OrderController(IOrderService orderService,
+                               IUserService userService,
+                               IPizzaService pizzaService)
         {
             _orderService = orderService;
             _userService = userService;
+            _pizzaService = pizzaService;
         }
 
         [HttpGet]
@@ -51,7 +53,7 @@ namespace SEDC.PizzaApp.Refactored.Web.Controllers
             ViewBag.Users = _userService.GetUsersForDropdown();
             return View(orderViewModel);
         }
-       
+
         [HttpPost]
         public IActionResult Create(OrderViewModel orderViewModel)
         {
@@ -125,6 +127,29 @@ namespace SEDC.PizzaApp.Refactored.Web.Controllers
             {
                 _orderService.DeleteOrder(orderDetailsViewModel.Id);
                 return RedirectToAction("Index");
+            }
+            catch (Exception e)
+            {
+                return View("ExceptionPage");
+            }
+        }
+
+        [HttpGet]
+        public IActionResult AddPizza(int id) 
+        {
+            PizzaOrderViewModel pizzaOrderViewModel = new PizzaOrderViewModel();
+            pizzaOrderViewModel.OrderId = id;
+            ViewBag.Pizzas = _pizzaService.GetPizzasForDropdown();
+            return View(pizzaOrderViewModel);
+        }
+
+        [HttpPost]
+        public IActionResult AddPizza(PizzaOrderViewModel pizzaOrderViewModel) 
+        {
+            try
+            {
+                _orderService.AddPizzaToOrder(pizzaOrderViewModel);
+                return RedirectToAction("Details", new { id = pizzaOrderViewModel.OrderId });
             }
             catch (Exception e)
             {

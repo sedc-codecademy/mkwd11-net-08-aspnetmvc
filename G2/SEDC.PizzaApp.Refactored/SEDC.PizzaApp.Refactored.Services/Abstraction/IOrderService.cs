@@ -1,9 +1,4 @@
 ﻿using SEDC.PizzaApp.Refactored.ViewModels.OrderViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SEDC.PizzaApp.Refactored.Services.Abstraction
 {
@@ -15,5 +10,6 @@ namespace SEDC.PizzaApp.Refactored.Services.Abstraction
         OrderViewModel GetOrderForEditing(int id);
         void EditOrder(OrderViewModel orderViewModel);
         void DeleteOrder(int id);
+        void AddPizzaToOrder(PizzaOrderViewModel pizzaOrderViewModel);
     }
 }

@@ -10,6 +10,6 @@ namespace SEDC.PizzaApp.Refactored.Services.Abstraction
     public interface IPizzaService
     {
         List<PizzaViewModel> GetPizzasForDropdown();
-        string GetPizzaOnPromotion();
+        string GetPizzaNameOnPromotion();
     }
 }
