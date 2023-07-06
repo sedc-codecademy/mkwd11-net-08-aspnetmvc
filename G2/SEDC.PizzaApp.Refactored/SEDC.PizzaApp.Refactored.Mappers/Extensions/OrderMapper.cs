@@ -32,5 +32,30 @@ namespace SEDC.PizzaApp.Refactored.Mappers.Extensions
                 UserId = orderViewModel.UserId
             };
         }
+
+        public static OrderDetailsViewModel MapToOrderDetailsViewModel(this Order order)
+        {
+            return new OrderDetailsViewModel
+            {
+                Delivered = order.Delivered,
+                PaymentMethod = order.PaymentMethod,
+                Location = order.Location,
+                UserFullName = $"{order.User.FirstName} {order.User.LastName}",
+                PizzaNames = order.PizzaOrders.Select(x => x.Pizza.Name).ToList(),
+                Id = order.Id
+            };
+        }
+
+        public static OrderViewModel MapToOrderViewModel(this Order order)
+        {
+            return new OrderViewModel
+            {
+                Id = order.Id,
+                Delivered = order.Delivered,
+                Location = order.Location,
+                PaymentMethod = order.PaymentMethod,
+                UserId = order.UserId
+            };
+        }
     }
 }

@@ -1,8 +1,8 @@
-﻿using SEDC.PizzaApp.Refactored.DataAccess.Repositories;
-using SEDC.PizzaApp.Refactored.Domain.Models;
+﻿using SEDC.PizzaApp.Refactored.Domain.Models;
 using SEDC.PizzaApp.Refactored.Services.Abstraction;
 using SEDC.PizzaApp.Refactored.ViewModels.UserViewModels;
 using SEDC.PizzaApp.Refactored.Mappers.Extensions;
+using SEDC.PizzaApp.Refactored.DataAccess.Repositories.Abstraction;
 
 namespace SEDC.PizzaApp.Refactored.Services
 {
